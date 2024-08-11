@@ -67,8 +67,12 @@ pnpm run build
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
-npm run lint
+pnpm run lint
 ```
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/Barry-Flynn/visionOS.svg?variant=adaptive)](https://starchart.cc/Barry-Flynn/visionOS)
 
 ### Design Reference
 
@@ -87,3 +91,9 @@ npm run lint
 - [Q&A: Building apps for visionOS](https://developer.apple.com/news/?id=prl6dp5r) (January 11, 2024)
 
 ![A spectrum of immersion](./src/assets/images/A-spectrum-of-immersion.webp)
+
+## License
+
+[MIT License](https://github.com/Barry-Flynn/visionOS/blob/main/LICENSE)
+
+Copyright (c) 2024 [Barry-Flynn](https://github.com/Barry-Flynn) (百里飞洋)
