@@ -96,4 +96,4 @@ pnpm run lint
 
 [MIT License](https://github.com/Barry-Flynn/visionOS/blob/main/LICENSE)
 
-Copyright (c) 2024 [Barry-Flynn](https://github.com/Barry-Flynn) (百里飞洋)
+Copyright (c) 2024-present [Barry-Flynn](https://github.com/Barry-Flynn) (百里飞洋)
