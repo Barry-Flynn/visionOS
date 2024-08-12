@@ -29,3 +29,24 @@
   // 阴影
   box-shadow: 0 1px 24px -1px rgba(0, 0, 0, 0.18);
 }
+
+// 自定义鼠标样式
+#cursor {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 25px;
+  opacity: 0.25;
+  z-index: 10086;
+  pointer-events: none;
+  transition: 0.1s ease-in-out;
+  transition-property: background, opacity, transform;
+}
+#cursor.hidden {
+  opacity: 0;
+}
+#cursor.active {
+  opacity: 0.5;
+  transform: scale(0.5);
+}

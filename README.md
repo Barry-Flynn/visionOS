@@ -1,24 +1,24 @@
 # visionOS
 
-![visionOS overview](./src/assets/images/visionos-overview.png)
+![visionOS overview](./public/images/visionos-overview.png)
 
 The goal of this project is to create a visionOS-style web personal homepage that allows us to experience the visual experience of Apple Vision Pro on the front-end as well. This project will use Vue3, TypeScript, Lottie, and other technologies to create a visually stunning and interactive experience.
 
 这个项目的目标是创建一个 visionOS 风格的 Web 个人主页，使我们在前端也能体验 Apple Vision Pro 的视觉体验。此项目将使用 Vue3、TypeScript、Lottie 等技术，创建一个视觉上令人惊叹和交互式的体验。
 
-![visionOS hello](./src/assets/images/visionOS-hello.jpg)
+![visionOS hello](./public/images/visionOS-hello.jpg)
 
 Another reason for creating this project is to enhance my coding skills, such as trying and practicing new techniques or interesting coding implementations (such as Vue3, TypeScript, Lottie, etc.). If you find it interesting, you can light up the "Star" button in this repository. Of course, you are also welcome to contribute to this project, provide interesting suggestions, or participate in the coding of the project.
 
 这个项目创建的另一个原因是为了提升我的编码技术，例如尝试和锻炼一些新技术或有趣的编码实现方式（如 Vue3、TypeScript 和 Lottie 等），如果觉得有趣可以点亮此存储库的“Star”按钮。当然，也欢迎你为此项目做出贡献，提出有趣的建议，或者参与进项目的编码。
 
-![Building apps for visionOS](./src/assets/images/Building-apps-for-visionOS.jpg)
+![Building apps for visionOS](./public/images/Building-apps-for-visionOS.jpg)
 
 The project is currently in the design and development phase, and the project will be updated continuously. The project will be divided into several stages, and the project will be updated with new features and improvements at each stage.
 
 项目目前处于设计和开发阶段，将持续更新。项目将分为几个阶段，每个阶段将会更新新的功能和改进。
 
-![Spatial design for visionOS](./src/assets/images/Spatial-design-for-visionOS.jpg)
+![Spatial design for visionOS](./public/images/Spatial-design-for-visionOS.jpg)
 
 ## Optional Features
 
@@ -90,7 +90,7 @@ pnpm run lint
 
 - [Q&A: Building apps for visionOS](https://developer.apple.com/news/?id=prl6dp5r) (January 11, 2024)
 
-![A spectrum of immersion](./src/assets/images/A-spectrum-of-immersion.webp)
+![A spectrum of immersion](./public/images/A-spectrum-of-immersion.webp)
 
 ## License
 
