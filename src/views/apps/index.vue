@@ -103,7 +103,7 @@ const appList = [
 
 <style scoped lang="scss">
 .canvas {
-  border: 1px solid red;
+  // border: 1px solid red;
   // 禁止鼠标选中
   user-select: none;
 
@@ -115,10 +115,11 @@ const appList = [
     justify-content: center;
 
     .app-item {
-      border: 1px solid yellow;
+      // border: 1px solid yellow;
       // 尺寸
       width: 120px;
       height: 100px;
+
       .app-icon {
         // 尺寸
         width: 70px;
@@ -129,12 +130,19 @@ const appList = [
         border-radius: 50%;
         // 定位
         margin: 4px auto;
+        // 过渡
+        transition: transform 0.2s ease-in-out;
 
         img {
           width: 100%;
           height: 100%;
           // 禁止鼠标拖拽
           pointer-events: none;
+        }
+
+        &:hover {
+          // 放大
+          transform: scale(1.1);
         }
       }
 
@@ -148,7 +156,7 @@ const appList = [
   }
 
   .canvas-bottom {
-    border: 1px solid blue;
+    // border: 1px solid blue;
     margin-top: 20px;
   }
 }
