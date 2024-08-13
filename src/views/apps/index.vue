@@ -4,7 +4,7 @@
       <!-- 循环渲染第1-4个app-item -->
       <div class="app-item" v-for="(app, index) in appList.slice(0, 4)" :key="index">
         <div class="app-icon glass-material">
-          <!-- <img :src="`@/assets/images/app-icons/${app.icon}`" :alt="app.name" /> -->
+          <img :src="`/images/app-icons/${app.icon}`" :alt="app.name" />
         </div>
         <div class="app-name ellipsis">{{ app.name }}</div>
       </div>
@@ -13,7 +13,7 @@
       <!-- 循环渲染第5-9个app-item -->
       <div class="app-item" v-for="(app, index) in appList.slice(4, 9)" :key="index">
         <div class="app-icon glass-material">
-          <!-- <img :src="`@/assets/images/app-icons/${app.icon}`" alt="app.name" /> -->
+          <img :src="`/images/app-icons/${app.icon}`" alt="app.name" />
         </div>
         <div class="app-name ellipsis">{{ app.name }}</div>
       </div>
@@ -22,10 +22,15 @@
       <!-- 循环渲染第10-13个app-item -->
       <div class="app-item" v-for="(app, index) in appList.slice(9, 13)" :key="index">
         <div class="app-icon glass-material">
-          <!-- <img :src="`@/assets/images/app-icons/${app.icon}`" alt="app.name" /> -->
+          <img :src="`/images/app-icons/${app.icon}`" alt="app.name" />
         </div>
         <div class="app-name ellipsis">{{ app.name }}</div>
       </div>
+    </div>
+
+    <!-- 分页器 -->
+    <div class="canvas-bottom">
+      <PaginationDots />
     </div>
   </div>
   <TabBar />
@@ -33,6 +38,7 @@
 
 <script setup lang="ts">
 import TabBar from '@/components/TabBar/index.vue'
+import PaginationDots from '@/components/Pagination/index.vue'
 
 defineOptions({
   name: 'AppsView'
@@ -98,32 +104,38 @@ const appList = [
 <style scoped lang="scss">
 .canvas {
   border: 1px solid red;
+  // 禁止鼠标选中
+  user-select: none;
+
   .apps-row {
+    // border: 1px solid green;
     display: flex;
     margin-top: 20px;
     gap: 16px;
     justify-content: center;
 
     .app-item {
+      border: 1px solid yellow;
       // 尺寸
       width: 120px;
       height: 100px;
-      // 边框
-      border: 1px solid yellow;
       .app-icon {
         // 尺寸
         width: 70px;
         height: 70px;
+        // 背景模糊，用于覆盖glass-material部分属性，从而获得更好效果
+        backdrop-filter: blur(10px);
         // 边框，用于覆盖glass-material部分属性
         border-radius: 50%;
         // 定位
         margin: 4px auto;
 
-        //   img {
-        //     width: 100%;
-        //     height: 100%;
-        //   }
-        // }
+        img {
+          width: 100%;
+          height: 100%;
+          // 禁止鼠标拖拽
+          pointer-events: none;
+        }
       }
 
       .app-name {
@@ -133,6 +145,11 @@ const appList = [
         text-align: center;
       }
     }
+  }
+
+  .canvas-bottom {
+    border: 1px solid blue;
+    margin-top: 20px;
   }
 }
 </style>

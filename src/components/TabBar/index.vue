@@ -12,7 +12,8 @@ defineOptions({
 .tab-bar {
   // 尺寸
   width: 42px;
-  height: 224px;
+  // height: 224px;
+  min-height: 126px;
   // 定位
   position: fixed;
   top: 50%;
@@ -26,5 +27,7 @@ defineOptions({
   justify-content: flex-start;
   align-items: flex-start;
   padding: 12px 8px 12px 8px;
+  // 禁止鼠标选中
+  user-select: none;
 }
 </style>
