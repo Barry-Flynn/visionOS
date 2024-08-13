@@ -3,6 +3,7 @@
     <!-- 默认插槽 -->
     <slot></slot>
   </div>
+  <div class="above-window"></div>
   <div class="below-window">
     <!-- 装饰品插槽 -->
     <slot name="ornaments"></slot>
@@ -17,17 +18,6 @@ defineOptions({
 </script>
 
 <style scoped lang="scss">
-.window {
-  // 尺寸
-  width: 700px;
-  height: 400px;
-  // 定位
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .below-window {
   // border: 1px solid red;
   // 定位

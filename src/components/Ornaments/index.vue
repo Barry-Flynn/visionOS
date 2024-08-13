@@ -19,11 +19,17 @@ defineOptions({
   width: 250px;
   height: 50px;
   // 定位
-  position: absolute;
-  top: 0;
+  // position: absolute;
+  // top: 0;
+  // left: 50%;
+  // transform: translate(-50%, -16px);
+  // 定位，高度变化时，底边位置不变
+  position: fixed;
   left: 50%;
-  transform: translate(-50%, -16px);
-  // 背景模糊，覆盖glass-material，以获得更好效果
+  bottom: 0;
+  transform: translate(-50%, -20px);
+
+  // 背景模糊，用于覆盖glass-material部分属性，从而获得更好效果
   backdrop-filter: blur(8px);
   // 自动布局
   display: flex;

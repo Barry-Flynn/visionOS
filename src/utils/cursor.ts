@@ -91,19 +91,19 @@ class Cursor {
   }
 }
 
-type CursorType = {
-  cursor: HTMLElement
-  pos: {
-    curr: { x: number; y: number }
-    prev: { x: number; y: number }
-  }
-  pt: HTMLElement[]
-  scr: HTMLElement
-  move: (left: number, top: number) => void
-  create: () => void
-  refresh: () => void
-  init: () => void
-  render: () => void
-}
+// type CursorType = {
+//   cursor: HTMLElement
+//   pos: {
+//     curr: { x: number; y: number }
+//     prev: { x: number; y: number }
+//   }
+//   pt: HTMLElement[]
+//   scr: HTMLElement
+//   move: (left: number, top: number) => void
+//   create: () => void
+//   refresh: () => void
+//   init: () => void
+//   render: () => void
+// }
 
-export default cursorInit as () => CursorType
+export default cursorInit

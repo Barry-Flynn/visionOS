@@ -7,6 +7,18 @@
   font-size: 0;
 }
 
+// 窗口画布
+.window {
+  // 尺寸
+  width: 700px;
+  height: 400px;
+  // 定位
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 // 玻璃材质
 .glass-material {
   // 背景模糊
@@ -49,4 +61,11 @@
 #cursor.active {
   opacity: 0.5;
   transform: scale(0.5);
+}
+
+// 文本溢出省略
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
