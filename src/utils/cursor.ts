@@ -1,3 +1,4 @@
+// @ts-nocheck
 let mainCursor
 
 Math.lerp = (a, b, n) => (1 - n) * a + n * b
