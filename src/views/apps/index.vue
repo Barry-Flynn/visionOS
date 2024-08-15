@@ -3,7 +3,7 @@
     <div class="apps-row">
       <!-- 循环渲染第1-4个app-item -->
       <div class="app-item" v-for="(app, index) in appList.slice(0, 4)" :key="index">
-        <div class="app-icon glass-material">
+        <div class="app-icon glass-material" @click="goTo(app.path)">
           <img :src="`/images/app-icons/${app.icon}`" :alt="app.name" />
         </div>
         <div class="app-name ellipsis">{{ app.name }}</div>
@@ -12,7 +12,7 @@
     <div class="apps-row">
       <!-- 循环渲染第5-9个app-item -->
       <div class="app-item" v-for="(app, index) in appList.slice(4, 9)" :key="index">
-        <div class="app-icon glass-material">
+        <div class="app-icon glass-material" @click="goTo(app.path)">
           <img :src="`/images/app-icons/${app.icon}`" alt="app.name" />
         </div>
         <div class="app-name ellipsis">{{ app.name }}</div>
@@ -21,7 +21,7 @@
     <div class="apps-row">
       <!-- 循环渲染第10-13个app-item -->
       <div class="app-item" v-for="(app, index) in appList.slice(9, 13)" :key="index">
-        <div class="app-icon glass-material">
+        <div class="app-icon glass-material" @click="goTo(app.path)">
           <img :src="`/images/app-icons/${app.icon}`" alt="app.name" />
         </div>
         <div class="app-name ellipsis">{{ app.name }}</div>
@@ -37,6 +37,8 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+
 import TabBar from '@/components/TabBar/index.vue'
 import PaginationDots from '@/components/Pagination/index.vue'
 
@@ -44,6 +46,7 @@ defineOptions({
   name: 'AppsView'
 })
 
+// 数据
 // 定义app列表
 const appList = [
   {
@@ -52,7 +55,8 @@ const appList = [
   },
   {
     name: 'Music',
-    icon: 'Music.png'
+    icon: 'Music.png',
+    path: '/music'
   },
   {
     name: 'Mindfulness',
@@ -60,7 +64,8 @@ const appList = [
   },
   {
     name: 'Settings',
-    icon: 'Settings.png'
+    icon: 'Settings.png',
+    path: '/settings'
   },
   {
     name: 'Freeform',
@@ -72,7 +77,8 @@ const appList = [
   },
   {
     name: 'Photos',
-    icon: 'Photos.png'
+    icon: 'Photos.png',
+    path: '/photos'
   },
   {
     name: 'Notes',
@@ -95,10 +101,22 @@ const appList = [
     icon: 'Keynote.png'
   },
   {
-    name: 'Compatinle Apps',
+    name: 'Compatible Apps',
     icon: 'CompatibleApps.png'
   }
 ]
+
+// 方法
+const router = useRouter()
+// 跳转到指定路径
+const goTo = (path?: string) => {
+  // console.log('goTo', path)
+  if (path) {
+    router.push(path)
+  } else {
+    console.log('未指定路径')
+  }
+}
 </script>
 
 <style scoped lang="scss">

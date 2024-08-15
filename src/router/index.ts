@@ -15,6 +15,16 @@ const router = createRouter({
       component: AppsView
     },
     {
+      path: '/music',
+      name: 'music',
+      component: () => import('@/views/music/index.vue')
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: () => import('@/views/settings/index.vue')
+    },
+    {
       path: '/photos',
       name: 'photos',
       component: () => import('@/views/photos/index.vue')
