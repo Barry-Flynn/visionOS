@@ -46,8 +46,30 @@ class Cursor {
     for (let i = 0; i < el.length; i++)
       if (getStyle(el[i], 'cursor') == 'pointer') this.pt.push(el[i].outerHTML)
 
+    // 自定义鼠标样式
     document.body.appendChild((this.scr = document.createElement('style')))
-    this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='white' opacity='0.8' /></svg>") 4 4, auto !important}`
+    this.scr.innerHTML = `* {
+      cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='white' opacity='0.8' /></svg>") 4 4, auto !important
+    }
+    #cursor {
+      position: fixed;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border-radius: 25px;
+      opacity: 0.25;
+      z-index: 10086;
+      pointer-events: none;
+      transition: 0.1s ease-in-out;
+      transition-property: background, opacity, transform;
+    }
+    #cursor.hidden {
+      opacity: 0;
+    }
+    #cursor.active {
+      opacity: 0.5;
+      transform: scale(0.5);
+    }`
   }
 
   refresh() {

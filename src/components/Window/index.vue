@@ -3,7 +3,9 @@
     <!-- 默认插槽 -->
     <slot></slot>
   </div>
+
   <div class="above-window"></div>
+
   <div class="below-window">
     <!-- 装饰品插槽 -->
     <slot name="ornaments"></slot>
@@ -18,13 +20,22 @@ defineOptions({
 </script>
 
 <style scoped lang="scss">
-.below-window {
+.above-window {
   // border: 1px solid red;
   // 定位
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 200px);
+  transform: translate(-50%, calc(-100% - 206px)); // 以左下角为原点，向上偏移 window 高度的一半
+}
+
+.below-window {
+  border: 1px solid red;
+  // 定位
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 206px); // 以左上角为原点，向下偏移 window 高度的一半
   .window-bar {
     // 尺寸
     width: 70px;

@@ -7,11 +7,13 @@
   font-size: 0;
 }
 
-// 窗口画布
+// 窗口尺寸和位置的画布
 .window {
-  // 尺寸
+  // 尺寸，长宽比大概是39:23
+  // width: 800px;
+  // height: 470px;
   width: 700px;
-  height: 400px;
+  height: 412px;
   // 定位
   position: fixed;
   top: 50%;
@@ -40,27 +42,6 @@
   border: 1px solid #999999ad;
   // 阴影
   box-shadow: 0 1px 24px -1px rgba(0, 0, 0, 0.18);
-}
-
-// 自定义鼠标样式
-#cursor {
-  position: fixed;
-  width: 18px;
-  height: 18px;
-  background: #fff;
-  border-radius: 25px;
-  opacity: 0.25;
-  z-index: 10086;
-  pointer-events: none;
-  transition: 0.1s ease-in-out;
-  transition-property: background, opacity, transform;
-}
-#cursor.hidden {
-  opacity: 0;
-}
-#cursor.active {
-  opacity: 0.5;
-  transform: scale(0.5);
 }
 
 // 文本溢出省略
