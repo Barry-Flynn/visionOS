@@ -4,7 +4,7 @@
       <!-- 循环渲染第1-4个app-item -->
       <div class="app-item" v-for="(app, index) in appList.slice(0, 4)" :key="index">
         <div class="app-icon glass-material" @click="goTo(app.path)">
-          <img :src="`/images/app-icons/${app.icon}`" :alt="app.name" />
+          <img :src="getAppIconUrl(app.icon)" :alt="app.name" />
         </div>
         <div class="app-name ellipsis">{{ app.name }}</div>
       </div>
@@ -13,7 +13,7 @@
       <!-- 循环渲染第5-9个app-item -->
       <div class="app-item" v-for="(app, index) in appList.slice(4, 9)" :key="index">
         <div class="app-icon glass-material" @click="goTo(app.path)">
-          <img :src="`/images/app-icons/${app.icon}`" alt="app.name" />
+          <img :src="getAppIconUrl(app.icon)" alt="app.name" />
         </div>
         <div class="app-name ellipsis">{{ app.name }}</div>
       </div>
@@ -22,7 +22,7 @@
       <!-- 循环渲染第10-13个app-item -->
       <div class="app-item" v-for="(app, index) in appList.slice(9, 13)" :key="index">
         <div class="app-icon glass-material" @click="goTo(app.path)">
-          <img :src="`/images/app-icons/${app.icon}`" alt="app.name" />
+          <img :src="getAppIconUrl(app.icon)" alt="app.name" />
         </div>
         <div class="app-name ellipsis">{{ app.name }}</div>
       </div>
@@ -117,6 +117,10 @@ const goTo = (path?: string) => {
     console.log('未指定路径')
   }
 }
+// 获取app图标url
+const getAppIconUrl = (icon: string) => {
+  return new URL(`../../assets/images/app-icons/${icon}`, import.meta.url).href
+}
 </script>
 
 <style scoped lang="scss">
@@ -146,6 +150,7 @@ const goTo = (path?: string) => {
         backdrop-filter: blur(10px);
         // 边框，用于覆盖glass-material部分属性
         border-radius: 50%;
+        overflow: hidden;
         // 定位
         margin: 4px auto;
         // 过渡
