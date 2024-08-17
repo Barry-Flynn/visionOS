@@ -10,10 +10,15 @@ defineOptions({
 })
 </script>
 
-<style scoped>
-img {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+<style scoped lang="scss">
+.environment {
+  // 禁止鼠标选中
+  user-select: none;
+
+  img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
 }
 </style>

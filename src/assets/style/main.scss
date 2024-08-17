@@ -50,3 +50,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+// 隐藏滚动条
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
