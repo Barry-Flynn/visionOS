@@ -30,7 +30,7 @@ defineOptions({
 }
 
 .below-window {
-  border: 1px solid red;
+  // border: 1px solid red;
   // 定位
   position: fixed;
   top: 50%;
