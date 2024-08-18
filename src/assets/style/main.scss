@@ -39,7 +39,8 @@
   );
   // 边框
   border-radius: 30px;
-  border: 1px solid #999999ad;
+  border: 1px solid;
+  border-color: rgba(255, 255, 255, 0.2);
   // 阴影
   box-shadow: 0 1px 24px -1px rgba(0, 0, 0, 0.18);
 }

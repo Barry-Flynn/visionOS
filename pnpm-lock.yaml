@@ -10,6 +10,7 @@ specifiers:
   '@vue/tsconfig': ^0.5.1
   eslint: ^8.57.0
   eslint-plugin-vue: ^9.23.0
+  mingcute_icon: ^2.9.4
   npm-run-all2: ^6.2.0
   pinia: ^2.1.7
   prettier: ^3.2.5
@@ -21,6 +22,7 @@ specifiers:
   vue-tsc: ^2.0.21
 
 dependencies:
+  mingcute_icon: 2.9.4
   pinia: 2.2.0_4knax3kklwwdglab4jxika74fe
   vue: 3.4.35_typescript@5.4.5
   vue-router: 4.4.2_vue@3.4.35
@@ -1466,6 +1468,10 @@ packages:
       braces: 3.0.3
       picomatch: 2.3.1
     dev: true
+
+  /mingcute_icon/2.9.4:
+    resolution: {integrity: sha512-cT05R6Vw9q0Y0WMFtryKRlgtimsKNPN/6E7h1pFR3+cskH5ChGxHJLbC6y4qyNx7FpMce07aPlNGdUaTM7inBw==}
+    dev: false
 
   /minimatch/3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}

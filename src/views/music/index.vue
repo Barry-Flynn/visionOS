@@ -300,6 +300,16 @@ const playlists = [
           border-radius: 6px;
           overflow: hidden;
           background-color: rgba(255, 255, 255, 0.2);
+          // 禁止拖拽
+          pointer-events: none;
+          // 禁止选中
+          user-select: none;
+          // 图片填充
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
         }
 
         .playlist-info {
@@ -310,10 +320,14 @@ const playlists = [
           .playlist-name {
             font-size: 8px;
             color: rgba(255, 255, 255, 0.9);
+            // 禁止选中
+            user-select: none;
           }
           .playlist-desc {
             font-size: 8px;
             color: rgba(255, 255, 255, 0.5);
+            // 禁止选中
+            user-select: none;
           }
         }
       }
