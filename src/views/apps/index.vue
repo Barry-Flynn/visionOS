@@ -34,10 +34,11 @@
     </div>
   </div>
 
-  <TabBar />
+  <TabBar :tabs="tabs" />
 </template>
 
 <script setup lang="ts">
+import { type Tab } from '@/types/tabBar'
 import { useRouter } from 'vue-router'
 
 import TabBar from '@/components/TabBar/index.vue'
@@ -47,7 +48,28 @@ defineOptions({
   name: 'AppsView'
 })
 
-// 数据
+// 定义标签项
+const tabs: Tab[] = [
+  {
+    icon: 'appstore_line',
+    name: 'App Store',
+    path: '/appstore',
+    active: true
+  },
+  {
+    icon: 'group_2_line',
+    name: 'Messages',
+    path: '/messages',
+    active: false
+  },
+  {
+    icon: 'pic_line',
+    name: 'Photos',
+    path: '/photos',
+    active: false
+  }
+]
+
 // 定义app列表
 const appList = [
   {
@@ -129,6 +151,11 @@ const getAppIconUrl = (icon: string) => {
   // border: 1px solid red;
   // 禁止鼠标选中
   user-select: none;
+  // 布局
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   .apps-row {
     // border: 1px solid green;

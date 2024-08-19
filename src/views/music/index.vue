@@ -17,31 +17,31 @@
             <div class="menu-item-icon">
               <Button icon="time_line" />
             </div>
-            <div class="menu-item-name">Recently Added</div>
+            <div class="menu-item-name ellipsis">Recently Added</div>
           </div>
           <div class="menu-item">
             <div class="menu-item-icon">
               <Button icon="microphone_line" />
             </div>
-            <div class="menu-item-name">Artists</div>
+            <div class="menu-item-name ellipsis">Artists</div>
           </div>
           <div class="menu-item">
             <div class="menu-item-icon">
               <Button icon="album_2_line" />
             </div>
-            <div class="menu-item-name">Albums</div>
+            <div class="menu-item-name ellipsis">Albums</div>
           </div>
           <div class="menu-item">
             <div class="menu-item-icon">
               <Button icon="music_2_line" />
             </div>
-            <div class="menu-item-name">Songs</div>
+            <div class="menu-item-name ellipsis">Songs</div>
           </div>
           <div class="menu-item">
             <div class="menu-item-icon">
               <Button icon="user_2_line" />
             </div>
-            <div class="menu-item-name">Made For You</div>
+            <div class="menu-item-name ellipsis">Made For You</div>
           </div>
           <div class="sub-menu">
             <div class="sub-menu-name">Playlists</div>
@@ -51,35 +51,35 @@
             <div class="menu-item-icon">
               <Button icon="grid_2_line" />
             </div>
-            <div class="menu-item-name">All Playlists</div>
+            <div class="menu-item-name ellipsis">All Playlists</div>
           </div>
           <div class="menu-item">
             <div class="menu-item-icon">
               <!-- <Button icon="add_line" /> -->
               <img
                 class="playlist-cover"
-                src="https://via.placeholder.com/22x22"
+                src="https://picsum.photos/22/22?random=01"
                 alt="playlist cover"
               />
             </div>
-            <div class="menu-item-name">Good Vibes Only</div>
+            <div class="menu-item-name ellipsis">Good Vibes Only</div>
           </div>
           <div class="menu-item">
             <div class="menu-item-icon">
               <!-- <Button icon="add_line"> </Button> -->
               <img
                 class="playlist-cover"
-                src="https://via.placeholder.com/22x22"
+                src="https://picsum.photos/22/22?random=02"
                 alt="playlist cover"
               />
             </div>
-            <div class="menu-item-name">Indie Anthems</div>
+            <div class="menu-item-name ellipsis">Indie Anthems</div>
           </div>
           <div class="menu-item">
             <div class="menu-item-icon">
               <Button icon="add_line" bg />
             </div>
-            <div class="menu-item-name">Add Playlist</div>
+            <div class="menu-item-name ellipsis">Add Playlist</div>
           </div>
         </div>
       </Side>
@@ -118,10 +118,11 @@
     </template>
   </Window>
 
-  <TabBar />
+  <TabBar :tabs="tabs" />
 </template>
 
 <script setup lang="ts">
+import { type Tab } from '@/types/tabBar'
 import TabBar from '@/components/TabBar/index.vue'
 import Window from '@/components/Window/index.vue'
 import Ornaments from '@/components/Ornaments/index.vue'
@@ -135,46 +136,86 @@ defineOptions({
   name: 'MusicView'
 })
 
+// 定义标签项
+const tabs: Tab[] = [
+  {
+    icon: 'play_circle_line',
+    name: 'Play',
+    path: '/music',
+    active: false
+  },
+  {
+    icon: 'grid_line',
+    name: 'Grid',
+    path: '/music',
+    active: false
+  },
+  {
+    icon: 'tv_1_line',
+    name: 'TV',
+    path: '/music',
+    active: false
+  },
+  {
+    icon: 'radar_line',
+    name: 'Radar',
+    path: '/Radar',
+    active: false
+  },
+  {
+    icon: 'album_2_line',
+    name: 'Album',
+    path: '/music',
+    active: true
+  },
+  {
+    icon: 'search_line',
+    name: 'Search',
+    path: '/music',
+    active: false
+  }
+]
+
 const playlists = [
   {
     name: 'Good Vibes Only',
     desc: 'Apple Music Dance',
-    cover: 'https://via.placeholder.com/135x135'
+    cover: 'https://picsum.photos/135/135?random=1'
   },
   {
     name: 'Indie Anthems',
     desc: 'Apple Music Indie',
-    cover: 'https://via.placeholder.com/135x135'
+    cover: 'https://picsum.photos/135/135?random=2'
   },
   {
     name: 'Family Dance Party',
     desc: 'Apple Music Family',
-    cover: 'https://via.placeholder.com/135x135'
+    cover: 'https://picsum.photos/135/135?random=3'
   },
   {
     name: 'La Formula',
     desc: 'Apple Music Latin',
-    cover: 'https://via.placeholder.com/135x135'
+    cover: 'https://picsum.photos/135/135?random=4'
   },
   {
     name: 'Solid Gold Hits',
     desc: 'Apple Music Pop',
-    cover: 'https://via.placeholder.com/135x135'
+    cover: 'https://picsum.photos/135/135?random=5'
   },
   {
     name: 'Caffeine Country',
     desc: 'Apple Music Country',
-    cover: 'https://via.placeholder.com/135x135'
+    cover: 'https://picsum.photos/135/135?random=6'
   },
   {
     name: 'Melodic Rap',
     desc: 'Apple Music Hip-Hop',
-    cover: 'https://via.placeholder.com/135x135'
+    cover: 'https://picsum.photos/135/135?random=7'
   },
   {
     name: 'Viral Remixed',
     desc: 'Apple Music',
-    cover: 'https://via.placeholder.com/135x135'
+    cover: 'https://picsum.photos/135/135?random=8'
   }
 ]
 </script>
@@ -254,6 +295,10 @@ const playlists = [
           height: 22px;
           border: none;
           border-radius: 4px;
+        }
+
+        .playlist-cover {
+          background-color: rgba(255, 255, 255, 0.2);
         }
       }
 

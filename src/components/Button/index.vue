@@ -18,9 +18,12 @@ defineOptions({
 
 // 接收参数
 const props = defineProps<{
-  icon?: string // 按钮图标名称
-  bg?: boolean // 是否设置背景色，如果是，按钮会被添加 is-has-bg 类
-  disabled?: boolean // 是否禁用按钮
+  // 按钮图标名称
+  icon?: string
+  // 是否设置背景色，如果是，按钮会被添加 is-has-bg 类
+  bg?: boolean
+  // 是否禁用按钮
+  disabled?: boolean
 }>()
 
 // 按钮点击事件
