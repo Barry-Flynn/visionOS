@@ -14,9 +14,9 @@ defineOptions({
 <style scoped lang="scss">
 .side {
   // 尺寸
-  width: 170px;
-  height: 150px;
-  max-height: 410px; // 限制最大高度等于 window 的内容高度
+  width: 216px;
+  height: 500px; // 高度等于 Window 的内容高度
+  max-height: 500px; // 限制最大高度
   // 背景
   background-color: #0000003d;
   text-align: center;

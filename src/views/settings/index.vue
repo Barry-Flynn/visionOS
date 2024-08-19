@@ -1,11 +1,12 @@
 <template>
-  <TabBar />
   <Window>
     Window画布内容
     <template v-slot:ornaments>
       <Ornaments />
     </template>
   </Window>
+
+  <TabBar />
 </template>
 
 <script setup lang="ts">

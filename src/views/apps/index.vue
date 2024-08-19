@@ -33,6 +33,7 @@
       <PaginationDots />
     </div>
   </div>
+
   <TabBar />
 </template>
 

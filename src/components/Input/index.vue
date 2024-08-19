@@ -15,10 +15,10 @@ defineOptions({
   input {
     // 尺寸
     width: 100%;
-    height: 24px;
+    height: 28px;
     // 边框
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     // 内边距
     padding: 0 10px;
     // 背景

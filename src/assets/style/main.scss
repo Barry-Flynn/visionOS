@@ -7,13 +7,19 @@
   font-size: 0;
 }
 
+// 强制覆盖 mingcute_icon 图标库的初始字体颜色
+// 匹配所有以 mgc_ 开头的类名和包含 mgc_ 的类名的::before 伪元素
+[class^='mgc_']::before,
+[class*=' mgc_']::before {
+  // 继承父元素的字体颜色
+  color: inherit !important;
+}
+
 // 窗口尺寸和位置的画布
 .window {
-  // 尺寸，长宽比大概是39:23
-  // width: 800px;
-  // height: 470px;
-  width: 700px;
-  height: 412px;
+  // 尺寸，长宽比大概是1.72
+  width: 872px; // 去除边框，内容区域宽度是 870px
+  height: 502px; // 去除边框，内容区域高度是 500px
   // 定位
   position: fixed;
   top: 50%;

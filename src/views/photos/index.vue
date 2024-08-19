@@ -5,6 +5,7 @@
       <Ornaments />
     </template>
   </Window>
+
   <TabBar />
 </template>
 

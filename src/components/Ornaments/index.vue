@@ -1,6 +1,10 @@
 <template>
-  <div class="occupying-element"></div>
-  <div class="ornaments glass-material">Ornaments</div>
+  <div class="occupying-element">
+    <div class="ornaments glass-material">
+      <!-- 默认插槽 -->
+      <slot />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -27,7 +31,7 @@ defineOptions({
   position: fixed;
   left: 50%;
   bottom: 0;
-  transform: translate(-50%, -20px);
+  transform: translate(-50%, -18px);
 
   // 背景模糊，用于覆盖glass-material部分属性，从而获得更好效果
   backdrop-filter: blur(8px);

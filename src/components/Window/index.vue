@@ -26,7 +26,7 @@ defineOptions({
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, calc(-100% - 206px)); // 以左下角为原点，向上偏移 window 高度的一半
+  transform: translate(-50%, calc(-100% - 250px)); // 以左下角为原点，向上偏移 window 高度的一半
 }
 
 .below-window {
@@ -35,7 +35,7 @@ defineOptions({
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 206px); // 以左上角为原点，向下偏移 window 高度的一半
+  transform: translate(-50%, 250px); // 以左上角为原点，向下偏移 window 高度的一半
   .window-bar {
     // 尺寸
     width: 70px;
