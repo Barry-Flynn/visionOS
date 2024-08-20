@@ -20,7 +20,7 @@ defineOptions({
 }
 .ornaments {
   // 尺寸
-  width: 250px;
+  min-width: 250px;
   height: 50px;
   // 定位
   // position: absolute;

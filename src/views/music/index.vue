@@ -96,7 +96,7 @@
         </div>
 
         <div class="content">
-          <Input class="search-input" />
+          <Input class="search-input" placeholder="Search in Albums" />
 
           <div class="playlists hide-scrollbar">
             <div class="playlist" v-for="playlist in playlists" :key="playlist.name">
@@ -114,7 +114,9 @@
     </Container>
 
     <template v-slot:ornaments>
-      <Ornaments></Ornaments>
+      <Ornaments>
+        <MusicPlayer />
+      </Ornaments>
     </template>
   </Window>
 
@@ -131,6 +133,7 @@ import Side from '@/components/Container/Side.vue'
 import Main from '@/components/Container/Main.vue'
 import Input from '@/components/Input/index.vue'
 import Button from '@/components/Button/index.vue'
+import MusicPlayer from './MusicPlayer.vue'
 
 defineOptions({
   name: 'MusicView'
@@ -217,6 +220,16 @@ const playlists = [
     desc: 'Apple Music',
     cover: 'https://picsum.photos/135/135?random=8'
   }
+  // {
+  //   name: 'Viral Hits',
+  //   desc: 'Apple Music',
+  //   cover: 'https://picsum.photos/135/135?random=9'
+  // },
+  // {
+  //   name: 'Rap Heavy Hitters',
+  //   desc: 'Apple Music',
+  //   cover: 'https://picsum.photos/135/135?random=10'
+  // }
 ]
 </script>
 
@@ -379,7 +392,7 @@ const playlists = [
       gap: 4px;
       justify-content: space-between;
       // 设置列表最大高度，超出部分滚动
-      max-height: 386px;
+      max-height: 396px;
       overflow-y: auto;
       overflow-x: hidden;
 
