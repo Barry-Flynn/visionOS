@@ -96,7 +96,7 @@
         </div>
 
         <div class="content">
-          <Input class="search-input" placeholder="Search in Albums" />
+          <Input class="search-input" icon="mic_fill" placeholder="Search in Albums" />
 
           <div class="playlists hide-scrollbar">
             <div class="playlist" v-for="playlist in playlists" :key="playlist.name">

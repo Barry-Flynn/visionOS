@@ -28,6 +28,11 @@ const router = createRouter({
       component: () => import('@/views/settings/index.vue')
     },
     {
+      path: '/safari',
+      name: 'safari',
+      component: () => import('@/views/safari/index.vue')
+    },
+    {
       path: '/photos',
       name: 'photos',
       component: () => import('@/views/photos/index.vue')

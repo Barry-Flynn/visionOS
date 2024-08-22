@@ -33,7 +33,7 @@ const props = defineProps<{
   bg?: boolean
   // 是否禁用按钮
   disabled?: boolean
-  // 按钮尺寸
+  // 尺寸
   size?: 'large' | 'huge'
 }>()
 
@@ -57,7 +57,7 @@ const handleClick = () => {
   background-color: transparent;
   // 字体
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   // 布局
   display: inline-flex;
   justify-content: center;

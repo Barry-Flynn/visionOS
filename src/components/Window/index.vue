@@ -4,12 +4,14 @@
     <slot></slot>
   </div>
 
-  <div class="above-window"></div>
+  <div class="above-window">
+    <slot name="navigation"></slot>
+  </div>
 
   <div class="below-window">
-    <!-- 装饰品插槽 -->
+    <!-- 装饰插槽 -->
     <slot name="ornaments"></slot>
-    <div class="window-bar"></div>
+    <div class="window-controls"></div>
   </div>
 </template>
 
@@ -36,7 +38,7 @@ defineOptions({
   top: 50%;
   left: 50%;
   transform: translate(-50%, 250px); // 以左上角为原点，向下偏移 window 高度的一半
-  .window-bar {
+  .window-controls {
     // 尺寸
     width: 70px;
     height: 6px;

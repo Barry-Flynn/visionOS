@@ -96,7 +96,8 @@ const appList = [
   },
   {
     name: 'Safari',
-    icon: 'Safari.png'
+    icon: 'Safari.png',
+    path: '/safari'
   },
   {
     name: 'Photos',

@@ -1,6 +1,6 @@
 <template>
   <div class="environment">
-    <img src="@/assets/images/environment/home-daytime.png" alt="environment" />
+    <img src="@/assets/images/environment/apartment-daytime.png" alt="environment" />
   </div>
 </template>
 
