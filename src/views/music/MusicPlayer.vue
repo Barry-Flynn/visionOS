@@ -74,7 +74,7 @@ const handlePlay = () => {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
 
     .music-cover {
       // border: 1px solid green;

@@ -7,7 +7,6 @@
     <slot name="prefix"></slot>
 
     <div class="input-inner">
-      <!-- <span class="input-icon mgc_mic_fill"></span> -->
       <span :class="['input-icon', props.icon ? 'mgc_' + props.icon : '']"></span>
       <input
         type="text"

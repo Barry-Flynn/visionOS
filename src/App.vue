@@ -8,7 +8,7 @@ import { onMounted } from 'vue'
 
 import TheEnvironment from '@/views/environment/index.vue'
 import TheScreen from '@/views/screen/index.vue'
-
+// 鼠标样式
 import cursorInit from '@/utils/cursor'
 
 // 挂载完成时
@@ -66,11 +66,11 @@ onMounted(() => {
 
   // 控制台输出 https://github.com/Barry-Flynn/visionOS
   console.log(
-    '%cvisionOS',
-    'color: #fff; background: #00f; padding: 5px 10px; border-radius: 5px; font-size: 16px;'
+    '\n%c visionOS %c https://github.com/Barry-Flynn/visionOS \n',
+    'color: #ffffff; background: #0000ff; padding:5px 0; border-radius: 5px 0 0 5px;',
+    'background: #b9ddff; padding:5px 0;'
   )
-  console.log('%chttps://github.com/Barry-Flynn/visionOS', 'color: #00f; font-size: 12px;')
 })
 </script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

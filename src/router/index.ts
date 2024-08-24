@@ -1,16 +1,22 @@
 import { createRouter } from 'vue-router'
 // import { createWebHistory } from 'vue-router'
 import { createWebHashHistory } from 'vue-router'
+import HelloView from '@/views/hello/index.vue'
 import AppsView from '@/views/apps/index.vue'
 
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
   history: createWebHashHistory(),
   routes: [
+    // {
+    //   // Redirect to the first child route
+    //   path: '/',
+    //   redirect: { name: 'apps' }
+    // },
     {
-      // Redirect to the first child route
       path: '/',
-      redirect: { name: 'apps' }
+      name: 'hello',
+      component: HelloView
     },
     {
       path: '/apps',
