@@ -1,10 +1,12 @@
 <template>
-  <div class="mask-for-animation" ref="containerRef"></div>
+  <div>
+    <div class="mask-for-animation" ref="containerRef"></div>
 
-  <div class="mask-for-waiting" @click="animationFunction" v-show="waiting">
-    <span class="waiting-icon mgc_mouse_line animation-scale"></span>
-    <div class="waiting-tip">Click anywhere to enter</div>
-    <div class="waiting-tip">点击任意位置进入</div>
+    <div class="mask-for-waiting" @click="animationFunction" v-show="waiting">
+      <span class="waiting-icon mgc_mouse_line animation-scale"></span>
+      <div class="waiting-tip">Click anywhere to enter</div>
+      <div class="waiting-tip">点击任意位置进入</div>
+    </div>
   </div>
 </template>
 
@@ -18,10 +20,6 @@ import { useRouter } from 'vue-router'
 
 // Lottie动画
 import lottie from 'lottie-web'
-// import animationData from '@/assets/lottie/welcome-green.json'
-// import animationData from '@/assets/lottie/welcome.json'
-// import animationData from '@/assets/lottie/hello-black.json'
-// import animationData from '@/assets/lottie/hello-white.json'
 import animationData from '@/assets/lottie/hello.json'
 
 // 路由

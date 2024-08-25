@@ -11,7 +11,7 @@ defineOptions({
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .screen {
   position: fixed;
   top: 0;

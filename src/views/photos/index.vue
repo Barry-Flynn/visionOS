@@ -1,14 +1,16 @@
 <template>
-  <Window>
-    <div class="wrap hide-scrollbar">
-      <div class="photo-album" v-for="album in albums" :key="album.name">
-        <img class="album-cover" :src="album.cover" alt="album.name" />
-        <div class="album-name ellipsis">{{ album.name }}</div>
+  <div>
+    <Window>
+      <div class="wrap hide-scrollbar">
+        <div class="photo-album" v-for="album in albums" :key="album.name">
+          <img class="album-cover" :src="album.cover" alt="album.name" />
+          <div class="album-name ellipsis">{{ album.name }}</div>
+        </div>
       </div>
-    </div>
-  </Window>
+    </Window>
 
-  <TabBar :tabs="tabs" />
+    <TabBar :tabs="tabs" />
+  </div>
 </template>
 
 <script setup lang="ts">

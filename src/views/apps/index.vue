@@ -1,40 +1,42 @@
 <template>
-  <div class="window canvas">
-    <div class="apps-row">
-      <!-- 循环渲染第1-4个app-item -->
-      <div class="app-item" v-for="(app, index) in appList.slice(0, 4)" :key="index">
-        <div class="app-icon glass-material" @click="goTo(app.path)">
-          <img :src="getAppIconUrl(app.icon)" :alt="app.name" />
+  <div>
+    <div class="window canvas">
+      <div class="apps-row">
+        <!-- 循环渲染第1-4个app-item -->
+        <div class="app-item" v-for="(app, index) in appList.slice(0, 4)" :key="index">
+          <div class="app-icon glass-material" @click="goTo(app.path)">
+            <img :src="getAppIconUrl(app.icon)" :alt="app.name" />
+          </div>
+          <div class="app-name ellipsis">{{ app.name }}</div>
         </div>
-        <div class="app-name ellipsis">{{ app.name }}</div>
       </div>
-    </div>
-    <div class="apps-row">
-      <!-- 循环渲染第5-9个app-item -->
-      <div class="app-item" v-for="(app, index) in appList.slice(4, 9)" :key="index">
-        <div class="app-icon glass-material" @click="goTo(app.path)">
-          <img :src="getAppIconUrl(app.icon)" alt="app.name" />
+      <div class="apps-row">
+        <!-- 循环渲染第5-9个app-item -->
+        <div class="app-item" v-for="(app, index) in appList.slice(4, 9)" :key="index">
+          <div class="app-icon glass-material" @click="goTo(app.path)">
+            <img :src="getAppIconUrl(app.icon)" alt="app.name" />
+          </div>
+          <div class="app-name ellipsis">{{ app.name }}</div>
         </div>
-        <div class="app-name ellipsis">{{ app.name }}</div>
       </div>
-    </div>
-    <div class="apps-row">
-      <!-- 循环渲染第10-13个app-item -->
-      <div class="app-item" v-for="(app, index) in appList.slice(9, 13)" :key="index">
-        <div class="app-icon glass-material" @click="goTo(app.path)">
-          <img :src="getAppIconUrl(app.icon)" alt="app.name" />
+      <div class="apps-row">
+        <!-- 循环渲染第10-13个app-item -->
+        <div class="app-item" v-for="(app, index) in appList.slice(9, 13)" :key="index">
+          <div class="app-icon glass-material" @click="goTo(app.path)">
+            <img :src="getAppIconUrl(app.icon)" alt="app.name" />
+          </div>
+          <div class="app-name ellipsis">{{ app.name }}</div>
         </div>
-        <div class="app-name ellipsis">{{ app.name }}</div>
+      </div>
+
+      <!-- 分页器 -->
+      <div class="canvas-bottom">
+        <PaginationDots />
       </div>
     </div>
 
-    <!-- 分页器 -->
-    <div class="canvas-bottom">
-      <PaginationDots />
-    </div>
+    <TabBar :tabs="tabs" />
   </div>
-
-  <TabBar :tabs="tabs" />
 </template>
 
 <script setup lang="ts">

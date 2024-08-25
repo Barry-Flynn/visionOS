@@ -1,126 +1,128 @@
 <template>
-  <Window>
-    <Container>
-      <Side>
-        <div class="top">
-          <div class="left">
-            <div class="title">Library</div>
-            <div class="desc">All Music</div>
+  <div>
+    <Window>
+      <Container>
+        <Side>
+          <div class="top">
+            <div class="left">
+              <div class="title">Library</div>
+              <div class="desc">All Music</div>
+            </div>
+            <div class="right">
+              <Button icon="more_1_fill" bg />
+            </div>
           </div>
-          <div class="right">
-            <Button icon="more_1_fill" bg />
-          </div>
-        </div>
 
-        <div class="menu">
-          <div class="menu-item">
-            <div class="menu-item-icon">
-              <Button icon="time_line" />
-            </div>
-            <div class="menu-item-name ellipsis">Recently Added</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-icon">
-              <Button icon="microphone_line" />
-            </div>
-            <div class="menu-item-name ellipsis">Artists</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-icon">
-              <Button icon="album_2_line" />
-            </div>
-            <div class="menu-item-name ellipsis">Albums</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-icon">
-              <Button icon="music_2_line" />
-            </div>
-            <div class="menu-item-name ellipsis">Songs</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-icon">
-              <Button icon="user_2_line" />
-            </div>
-            <div class="menu-item-name ellipsis">Made For You</div>
-          </div>
-          <div class="sub-menu">
-            <div class="sub-menu-name">Playlists</div>
-            <Button class="sub-menu_icon-arrow" icon="down_line" />
-          </div>
-          <div class="menu-item active">
-            <div class="menu-item-icon">
-              <Button icon="grid_2_line" />
-            </div>
-            <div class="menu-item-name ellipsis">All Playlists</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-icon">
-              <!-- <Button icon="add_line" /> -->
-              <img
-                class="playlist-cover"
-                src="https://picsum.photos/22/22?random=01"
-                alt="playlist cover"
-              />
-            </div>
-            <div class="menu-item-name ellipsis">Good Vibes Only</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-icon">
-              <!-- <Button icon="add_line"> </Button> -->
-              <img
-                class="playlist-cover"
-                src="https://picsum.photos/22/22?random=02"
-                alt="playlist cover"
-              />
-            </div>
-            <div class="menu-item-name ellipsis">Indie Anthems</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-icon">
-              <Button icon="add_line" bg />
-            </div>
-            <div class="menu-item-name ellipsis">Add Playlist</div>
-          </div>
-        </div>
-      </Side>
-
-      <Main>
-        <div class="top">
-          <div class="left">
-            <div class="title">Playlists</div>
-            <div class="desc">254 Playlists</div>
-          </div>
-          <div class="right">
-            <Button icon="filter_2_line" bg />
-          </div>
-        </div>
-
-        <div class="content">
-          <Input class="search-input" icon="mic_fill" placeholder="Search in Albums" />
-
-          <div class="playlists hide-scrollbar">
-            <div class="playlist" v-for="playlist in playlists" :key="playlist.name">
-              <div class="playlist-cover">
-                <img :src="playlist.cover" alt="playlist.name" />
+          <div class="menu">
+            <div class="menu-item">
+              <div class="menu-item-icon">
+                <Button icon="time_line" />
               </div>
-              <div class="playlist-info">
-                <div class="playlist-name ellipsis">{{ playlist.name }}</div>
-                <div class="playlist-desc ellipsis">{{ playlist.desc }}</div>
+              <div class="menu-item-name ellipsis">Recently Added</div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-icon">
+                <Button icon="microphone_line" />
+              </div>
+              <div class="menu-item-name ellipsis">Artists</div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-icon">
+                <Button icon="album_2_line" />
+              </div>
+              <div class="menu-item-name ellipsis">Albums</div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-icon">
+                <Button icon="music_2_line" />
+              </div>
+              <div class="menu-item-name ellipsis">Songs</div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-icon">
+                <Button icon="user_2_line" />
+              </div>
+              <div class="menu-item-name ellipsis">Made For You</div>
+            </div>
+            <div class="sub-menu">
+              <div class="sub-menu-name">Playlists</div>
+              <Button class="sub-menu_icon-arrow" icon="down_line" />
+            </div>
+            <div class="menu-item active">
+              <div class="menu-item-icon">
+                <Button icon="grid_2_line" />
+              </div>
+              <div class="menu-item-name ellipsis">All Playlists</div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-icon">
+                <!-- <Button icon="add_line" /> -->
+                <img
+                  class="playlist-cover"
+                  src="https://picsum.photos/22/22?random=01"
+                  alt="playlist cover"
+                />
+              </div>
+              <div class="menu-item-name ellipsis">Good Vibes Only</div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-icon">
+                <!-- <Button icon="add_line"> </Button> -->
+                <img
+                  class="playlist-cover"
+                  src="https://picsum.photos/22/22?random=02"
+                  alt="playlist cover"
+                />
+              </div>
+              <div class="menu-item-name ellipsis">Indie Anthems</div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-icon">
+                <Button icon="add_line" bg />
+              </div>
+              <div class="menu-item-name ellipsis">Add Playlist</div>
+            </div>
+          </div>
+        </Side>
+
+        <Main>
+          <div class="top">
+            <div class="left">
+              <div class="title">Playlists</div>
+              <div class="desc">254 Playlists</div>
+            </div>
+            <div class="right">
+              <Button icon="filter_2_line" bg />
+            </div>
+          </div>
+
+          <div class="content">
+            <Input class="search-input" icon="mic_fill" placeholder="Search in Albums" />
+
+            <div class="playlists hide-scrollbar">
+              <div class="playlist" v-for="playlist in playlists" :key="playlist.name">
+                <div class="playlist-cover">
+                  <img :src="playlist.cover" alt="playlist.name" />
+                </div>
+                <div class="playlist-info">
+                  <div class="playlist-name ellipsis">{{ playlist.name }}</div>
+                  <div class="playlist-desc ellipsis">{{ playlist.desc }}</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </Main>
-    </Container>
+        </Main>
+      </Container>
 
-    <template v-slot:ornaments>
-      <Ornaments>
-        <MusicPlayer />
-      </Ornaments>
-    </template>
-  </Window>
+      <template v-slot:ornaments>
+        <Ornaments>
+          <MusicPlayer />
+        </Ornaments>
+      </template>
+    </Window>
 
-  <TabBar :tabs="tabs" />
+    <TabBar :tabs="tabs" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -179,6 +181,7 @@ const tabs: Tab[] = [
   }
 ]
 
+// 歌单数据
 const playlists = [
   {
     name: 'Good Vibes Only',

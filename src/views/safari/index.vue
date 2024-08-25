@@ -1,39 +1,41 @@
 <template>
-  <Window>
-    <template v-slot:navigation>
-      <div class="navigation glass-material">
-        <Button bg icon="layout_9_line" />
-        <Button bg icon="left_line" />
-        <Button bg icon="right_line" />
+  <div>
+    <Window>
+      <template v-slot:navigation>
+        <div class="navigation glass-material">
+          <Button bg icon="layout_9_line" />
+          <Button bg icon="left_line" />
+          <Button bg icon="right_line" />
 
-        <Input
-          class="search-input"
-          placeholder="Search or Enter website name"
-          :width="350"
-          round
-          center
-          v-model="inputValue"
-        >
-          <template v-slot:prefix>
-            <Button icon="world_2_line"></Button>
-          </template>
+          <Input
+            class="search-input"
+            placeholder="Search or Enter website name"
+            :width="350"
+            round
+            center
+            v-model="inputValue"
+          >
+            <template v-slot:prefix>
+              <Button icon="world_2_line"></Button>
+            </template>
 
-          <template v-slot:suffix>
-            <Button icon="refresh_1_line" />
-          </template>
-        </Input>
+            <template v-slot:suffix>
+              <Button icon="refresh_1_line" />
+            </template>
+          </Input>
 
-        <Button bg icon="upload_line" />
-        <Button bg icon="add_line" />
-        <Button bg icon="copy_2_line" />
+          <Button bg icon="upload_line" />
+          <Button bg icon="add_line" />
+          <Button bg icon="copy_2_line" />
+        </div>
+      </template>
+
+      <!-- 网页内容 -->
+      <div class="web-content">
+        <iframe :src="inputValue" frameborder="0"></iframe>
       </div>
-    </template>
-
-    <!-- 网页内容 -->
-    <div class="web-content">
-      <iframe :src="inputValue" frameborder="0"></iframe>
-    </div>
-  </Window>
+    </Window>
+  </div>
 </template>
 
 <script setup lang="ts">

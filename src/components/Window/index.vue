@@ -1,17 +1,19 @@
 <template>
-  <div class="window glass-material">
-    <!-- 默认插槽 -->
-    <slot></slot>
-  </div>
+  <div>
+    <div class="window glass-material">
+      <!-- 默认插槽 -->
+      <slot></slot>
+    </div>
 
-  <div class="above-window">
-    <slot name="navigation"></slot>
-  </div>
+    <div class="above-window">
+      <slot name="navigation"></slot>
+    </div>
 
-  <div class="below-window">
-    <!-- 装饰插槽 -->
-    <slot name="ornaments"></slot>
-    <div class="window-controls"></div>
+    <div class="below-window">
+      <!-- 装饰插槽 -->
+      <slot name="ornaments"></slot>
+      <div class="window-controls"></div>
+    </div>
   </div>
 </template>
 
