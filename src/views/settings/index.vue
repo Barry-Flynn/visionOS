@@ -15,7 +15,9 @@
 
           <Menu :menu-list="menuList"></Menu>
         </Side>
-        <Main></Main>
+        <Main>
+          <RouterView></RouterView>
+        </Main>
       </Container>
     </Window>
   </div>
@@ -32,38 +34,34 @@ import Side from '@/components/Container/Side.vue'
 import Main from '@/components/Container/Main.vue'
 import Menu from '@/components/Menu/index.vue'
 import Button from '@/components/Button/index.vue'
+import { RouterView } from 'vue-router'
 
 // 菜单列表
 const menuList = [
   {
     icon: 'user_heart_line',
-    name: 'Developer',
-    path: '/settings',
-    active: true
+    name: 'Developer Profile',
+    path: '/settings/profile'
   },
   {
     icon: 'translate_2_line',
     name: 'Language',
-    path: '/settings',
-    active: false
+    path: '/settings'
   },
   {
     icon: 'pic_line',
     name: 'Environment',
-    path: '/settings',
-    active: false
+    path: '/settings/environment'
   },
   {
     icon: 'alert_octagon_line',
     name: 'About',
-    path: '/settings',
-    active: false
+    path: '/settings'
   },
   {
     icon: 'currency_dollar_line',
     name: 'Reward',
-    path: '/settings',
-    active: false
+    path: '/settings'
   }
 ]
 </script>
@@ -79,7 +77,7 @@ const menuList = [
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    // 禁止鼠标选中
+    // 禁止选中
     user-select: none;
 
     .left {
@@ -101,5 +99,9 @@ const menuList = [
       padding: 14px;
     }
   }
+}
+
+.main {
+  display: block;
 }
 </style>

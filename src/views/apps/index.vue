@@ -152,7 +152,7 @@ const getAppIconUrl = (icon: string) => {
 <style scoped lang="scss">
 .canvas {
   // border: 1px solid red;
-  // 禁止鼠标选中
+  // 禁止选中
   user-select: none;
   // 布局
   display: flex;

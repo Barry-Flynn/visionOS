@@ -41,7 +41,7 @@ defineOptions({
   justify-content: flex-start;
   align-items: flex-start;
   padding: 4px 8px;
-  // 禁止鼠标选中
+  // 禁止选中
   user-select: none;
 }
 </style>

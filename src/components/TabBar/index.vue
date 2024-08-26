@@ -64,7 +64,7 @@ const handleMouseLeave = () => {
   justify-content: flex-start;
   align-items: flex-start;
   padding: 6px;
-  // 禁止鼠标选中
+  // 禁止选中
   user-select: none;
   // 边框，用于覆盖glass-material部分属性，从而获得更好效果
   border-radius: 21px;

@@ -3,9 +3,9 @@
     <div
       class="menu-item"
       :class="{ active: item.active }"
-      v-for="(item, index) in menuList"
+      v-for="(item, index) in menuData"
       :key="index"
-      @click="$router.push(item.path)"
+      @click="goTo(item)"
     >
       <div class="menu-item-icon">
         <Button :icon="item.icon" />
@@ -20,17 +20,57 @@ defineOptions({
   name: 'TheMenu'
 })
 
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import Button from '@/components/Button/index.vue'
 
+const router = useRouter()
+
+type Menu = {
+  icon: string
+  name: string
+  path: string
+  active?: boolean
+}
+
 // 接收参数
-defineProps<{
-  menuList: {
-    icon: string
-    name: string
-    path: string
-    active: boolean
-  }[]
+const props = defineProps<{
+  menuList: Menu[]
 }>()
+
+// 保存菜单数据
+const menuData = ref(props.menuList)
+// 遍历菜单数据，添加激活状态
+props.menuList.forEach((item) => {
+  item.active = false
+})
+// 获取当前路由，设置激活状态
+const currentRoute = router.currentRoute.value
+menuData.value.forEach((item) => {
+  // console.log('currentRoute', currentRoute)
+  // console.log('item', item)
+  // 判断当前路由是否与菜单路由相同
+  if (currentRoute.path === item.path) {
+    item.active = true
+  } else {
+    item.active = false
+  }
+})
+
+// 路由跳转
+const goTo = (item: Menu) => {
+  // console.log('goTo', path)
+  if (item.path) {
+    router.push(item.path)
+    // 更新菜单数据
+    menuData.value.forEach((item) => {
+      item.active = false
+    })
+    item.active = true
+  } else {
+    console.log('未指定路径')
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -38,7 +78,7 @@ defineProps<{
   // border: 1px solid red;
   text-align: left;
   padding: 0 8px;
-  // 禁止鼠标选中
+  // 禁止选中
   user-select: none;
 
   .menu-item {

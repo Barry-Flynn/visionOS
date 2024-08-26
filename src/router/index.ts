@@ -31,7 +31,20 @@ const router = createRouter({
     {
       path: '/settings',
       name: 'settings',
-      component: () => import('@/views/settings/index.vue')
+      component: () => import('@/views/settings/index.vue'),
+      redirect: { name: 'profile' },
+      children: [
+        {
+          path: 'profile',
+          name: 'profile',
+          component: () => import('@/views/settings/profile.vue')
+        },
+        {
+          path: 'environment',
+          name: 'environment',
+          component: () => import('@/views/settings/environment.vue')
+        }
+      ]
     },
     {
       path: '/safari',

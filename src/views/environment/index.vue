@@ -12,7 +12,7 @@ defineOptions({
 
 <style scoped lang="scss">
 .environment {
-  // 禁止鼠标选中
+  // 禁止选中
   user-select: none;
 
   img {

@@ -247,7 +247,7 @@ const playlists = [
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    // 禁止鼠标选中
+    // 禁止选中
     user-select: none;
 
     .left {
@@ -274,7 +274,7 @@ const playlists = [
     // border: 1px solid red;
     text-align: left;
     padding: 0 8px;
-    // 禁止鼠标选中
+    // 禁止选中
     user-select: none;
 
     .menu-item {
@@ -352,7 +352,7 @@ const playlists = [
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    // 禁止鼠标选中
+    // 禁止选中
     user-select: none;
 
     .left {
