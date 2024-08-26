@@ -1,6 +1,6 @@
 <template>
   <div class="environment">
-    <img src="@/assets/images/environment/apartment-daytime.png" alt="environment" />
+    <img :src="getImageUrl(settingsStore.environment.image)" alt="environment" />
   </div>
 </template>
 
@@ -8,6 +8,21 @@
 defineOptions({
   name: 'TheEnvironment'
 })
+
+import { useSettingsStore } from '@/stores/settings'
+
+// 获取图片地址
+const getImageUrl = (image: string) => {
+  return new URL(`../../assets/images/environment/${image}`, import.meta.url).href
+}
+
+const settingsStore = useSettingsStore()
+
+// watchEffect(() => {
+//   const { daytime } = settingsStore
+//   const environment = document.querySelector('.environment') as HTMLDivElement
+//   environment.style.backgroundImage = `url(${daytime ? '@/assets/images/environment/apartment-daytime.png' : '@/assets/images/environment/apartment-nighttime.png'})`
+// })
 </script>
 
 <style scoped lang="scss">

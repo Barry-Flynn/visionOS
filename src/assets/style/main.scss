@@ -60,6 +60,7 @@
 
 // 隐藏滚动条
 .hide-scrollbar {
+  overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
