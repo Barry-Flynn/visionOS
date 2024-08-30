@@ -1,0 +1,24 @@
+{
+  "apps": {
+    "tabs": {
+      "AppStore": "App Store",
+      "Messages": "Messages",
+      "Photos": "Photos"
+    },
+    "appList": {
+      "TV": "TV",
+      "Music": "Music",
+      "Mindfulness": "Mindfulness",
+      "Settings": "Settings",
+      "Freeform": "Freeform",
+      "Safari": "Safari",
+      "Photos": "Photos",
+      "Notes": "Notes",
+      "AppStore": "App Store",
+      "Mail": "Mail",
+      "Messages": "Messages",
+      "Keynote": "Keynote",
+      "CompatibleApps": "Compatible Apps"
+    }
+  }
+}

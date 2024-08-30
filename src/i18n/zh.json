@@ -1,0 +1,24 @@
+{
+  "apps": {
+    "tabs": {
+      "AppStore": "App Store",
+      "Messages": "信息",
+      "Photos": "照片"
+    },
+    "appList": {
+      "TV": "TV",
+      "Music": "音乐",
+      "Mindfulness": "正念",
+      "Settings": "设置",
+      "Freeform": "无边记",
+      "Safari": "Safari浏览器",
+      "Photos": "照片",
+      "Notes": "备忘录",
+      "AppStore": "App Store",
+      "Mail": "邮件",
+      "Messages": "信息",
+      "Keynote": "Keynote",
+      "CompatibleApps": "兼容App"
+    }
+  }
+}

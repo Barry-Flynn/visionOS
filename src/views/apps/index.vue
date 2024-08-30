@@ -42,6 +42,7 @@
 <script setup lang="ts">
 import { type Tab } from '@/types/tabBar'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 import TabBar from '@/components/TabBar/index.vue'
 import PaginationDots from '@/components/Pagination/index.vue'
@@ -50,23 +51,25 @@ defineOptions({
   name: 'AppsView'
 })
 
+const { t } = useI18n()
+
 // 定义标签项
 const tabs: Tab[] = [
   {
     icon: 'appstore_line',
-    name: 'App Store',
+    name: t('apps.tabs.AppStore'),
     path: '/appstore',
     active: true
   },
   {
     icon: 'group_2_line',
-    name: 'Messages',
+    name: t('apps.tabs.Messages'),
     path: '/messages',
     active: false
   },
   {
     icon: 'pic_line',
-    name: 'Photos',
+    name: t('apps.tabs.Photos'),
     path: '/photos',
     active: false
   }
@@ -75,59 +78,59 @@ const tabs: Tab[] = [
 // 定义app列表
 const appList = [
   {
-    name: 'TV',
+    name: t('apps.appList.TV'),
     icon: 'TV.png'
   },
   {
-    name: 'Music',
+    name: t('apps.appList.Music'),
     icon: 'Music.png',
     path: '/music'
   },
   {
-    name: 'Mindfulness',
+    name: t('apps.appList.Mindfulness'),
     icon: 'Mindfulness.png'
   },
   {
-    name: 'Settings',
+    name: t('apps.appList.Settings'),
     icon: 'Settings.png',
     path: '/settings'
   },
   {
-    name: 'Freeform',
+    name: t('apps.appList.Freeform'),
     icon: 'Freeform.png'
   },
   {
-    name: 'Safari',
+    name: t('apps.appList.Safari'),
     icon: 'Safari.png',
     path: '/safari'
   },
   {
-    name: 'Photos',
+    name: t('apps.appList.Photos'),
     icon: 'Photos.png',
     path: '/photos'
   },
   {
-    name: 'Notes',
+    name: t('apps.appList.Notes'),
     icon: 'Notes.png'
   },
   {
-    name: 'App Store',
+    name: t('apps.appList.AppStore'),
     icon: 'AppStore.png'
   },
   {
-    name: 'Mail',
+    name: t('apps.appList.Mail'),
     icon: 'Mail.png'
   },
   {
-    name: 'Messages',
+    name: t('apps.appList.Messages'),
     icon: 'Messages.png'
   },
   {
-    name: 'Keynote',
+    name: t('apps.appList.Keynote'),
     icon: 'Keynote.png'
   },
   {
-    name: 'Compatible Apps',
+    name: t('apps.appList.CompatibleApps'),
     icon: 'CompatibleApps.png'
   }
 ]
