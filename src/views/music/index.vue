@@ -144,9 +144,9 @@ defineOptions({
 // 定义标签项
 const tabs: Tab[] = [
   {
-    icon: 'play_circle_line',
-    name: 'Play',
-    path: '/music',
+    icon: 'home_3_fill',
+    name: 'Home',
+    path: '/home',
     active: false
   },
   {

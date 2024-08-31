@@ -74,6 +74,11 @@ const handleClick = () => {
   .button-icon + .button-text {
     margin-left: 4px;
   }
+
+  .button-text {
+    // 不换行
+    white-space: nowrap;
+  }
 }
 
 // 设置背景色

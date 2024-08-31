@@ -5,8 +5,8 @@
         <Side>
           <div class="top">
             <div class="left">
-              <div class="title">Settings</div>
-              <div class="desc">System settings items</div>
+              <div class="title">{{ t('settings.title') }}</div>
+              <div class="desc">{{ t('settings.subtitle') }}</div>
             </div>
             <div class="right">
               <Button icon="more_1_fill" bg />
@@ -35,32 +35,35 @@ import Main from '@/components/Container/Main.vue'
 import Menu from '@/components/Menu/index.vue'
 import Button from '@/components/Button/index.vue'
 import { RouterView } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 // 菜单列表
 const menuList = [
   {
     icon: 'user_heart_line',
-    name: 'Developer Profile',
+    name: t('settings.menuList.DeveloperProfile'),
     path: '/settings/profile'
   },
   {
     icon: 'translate_2_line',
-    name: 'Language',
+    name: t('settings.menuList.Language'),
     path: '/settings'
   },
   {
     icon: 'pic_line',
-    name: 'Environment',
-    path: '/settings/environment'
+    name: t('settings.menuList.Environments'),
+    path: '/settings/environments'
   },
   {
     icon: 'alert_octagon_line',
-    name: 'About',
+    name: t('settings.menuList.About'),
     path: '/settings'
   },
   {
     icon: 'currency_dollar_line',
-    name: 'Reward',
+    name: t('settings.menuList.Reward'),
     path: '/settings'
   }
 ]

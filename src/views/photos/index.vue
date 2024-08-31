@@ -7,6 +7,17 @@
           <div class="album-name ellipsis">{{ album.name }}</div>
         </div>
       </div>
+
+      <template v-slot:ornaments>
+        <Ornaments>
+          <div class="button-group">
+            <Button size="large" bg>Years</Button>
+            <Button size="large">Months</Button>
+            <Button size="large">Days</Button>
+            <Button size="large">All Photos</Button>
+          </div>
+        </Ornaments>
+      </template>
     </Window>
 
     <TabBar :tabs="tabs" />
@@ -17,6 +28,8 @@
 import { type Tab } from '@/types/tabBar'
 import Window from '@/components/Window/index.vue'
 import TabBar from '@/components/TabBar/index.vue'
+import Ornaments from '@/components/Ornaments/index.vue'
+import Button from '@/components/Button/index.vue'
 
 defineOptions({
   name: 'PhotosView'
@@ -173,5 +186,13 @@ const albums = [
       }
     }
   }
+}
+
+.button-group {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
 }
 </style>

@@ -20,5 +20,16 @@
       "Keynote": "Keynote",
       "CompatibleApps": "Compatible Apps"
     }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "System settings items",
+    "menuList": {
+      "DeveloperProfile": "Developer Profile",
+      "Language": "Language",
+      "Environments": "Environments",
+      "About": "About",
+      "Reward": "Reward"
+    }
   }
 }

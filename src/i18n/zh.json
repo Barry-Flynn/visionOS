@@ -20,5 +20,16 @@
       "Keynote": "Keynote",
       "CompatibleApps": "兼容App"
     }
+  },
+  "settings": {
+    "title": "设置",
+    "subtitle": "系统设置项",
+    "menuList": {
+      "DeveloperProfile": "开发者",
+      "Language": "语言",
+      "Environments": "环境",
+      "About": "关于",
+      "Reward": "赞助"
+    }
   }
 }

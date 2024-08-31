@@ -51,7 +51,7 @@ defineOptions({
 
 // 这里暂时将 inputValue 设置为字符串，因为 ref 值的变动会导致 iframe 重新加载过于频繁
 // let inputValue = ref('https://barry-flynn.github.io/')
-const inputValue = 'https://barry-flynn.github.io/'
+let inputValue = 'https://barry-flynn.github.io/'
 </script>
 
 <style scoped lang="scss">

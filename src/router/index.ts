@@ -40,9 +40,9 @@ const router = createRouter({
           component: () => import('@/views/settings/profile.vue')
         },
         {
-          path: 'environment',
-          name: 'environment',
-          component: () => import('@/views/settings/environment.vue')
+          path: 'environments',
+          name: 'environments',
+          component: () => import('@/views/settings/environments.vue')
         }
       ]
     },
