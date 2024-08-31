@@ -40,6 +40,11 @@ const router = createRouter({
           component: () => import('@/views/settings/profile.vue')
         },
         {
+          path: 'language',
+          name: 'language',
+          component: () => import('@/views/settings/language.vue')
+        },
+        {
           path: 'environments',
           name: 'environments',
           component: () => import('@/views/settings/environments.vue')

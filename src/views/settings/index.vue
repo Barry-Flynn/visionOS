@@ -49,7 +49,7 @@ const menuList = [
   {
     icon: 'translate_2_line',
     name: t('settings.menuList.Language'),
-    path: '/settings'
+    path: '/settings/language'
   },
   {
     icon: 'pic_line',

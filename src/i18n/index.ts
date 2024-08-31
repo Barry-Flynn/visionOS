@@ -10,6 +10,11 @@ const messages = {
 
 // 获取语言
 export function getLanguage() {
+  // 判断是否存在本地设置
+  if (localStorage.getItem('settings')) {
+    const settings = JSON.parse(localStorage.getItem('settings') as string)
+    return settings.language
+  }
   // 获取浏览器语言
   const language = navigator.language.toLowerCase()
   // 获取 messages 的所有 key

@@ -53,6 +53,8 @@ const settingsStore = useSettingsStore()
 const changeEnvironment = (environment: environment) => {
   // console.log(environment)
   settingsStore.environment = environment
+  // 保存设置
+  settingsStore.saveSettings()
 }
 </script>
 
