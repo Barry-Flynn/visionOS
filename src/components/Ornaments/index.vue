@@ -15,6 +15,7 @@ defineOptions({
 
 <style scoped lang="scss">
 .occupying-element {
+  // border: 1px solid blue;
   width: 100%;
   height: 34px;
 }
@@ -22,15 +23,10 @@ defineOptions({
   // 尺寸
   min-width: 250px;
   height: 50px;
-  // 定位
-  // position: absolute;
-  // top: 0;
-  // left: 50%;
-  // transform: translate(-50%, -16px);
   // 定位，高度变化时，底边位置不变
-  position: fixed;
-  left: 50%;
+  position: relative;
   bottom: 0;
+  left: 50%;
   transform: translate(-50%, -18px);
 
   // 背景模糊，用于覆盖glass-material部分属性，从而获得更好效果
