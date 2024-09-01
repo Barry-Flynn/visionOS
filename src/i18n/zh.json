@@ -1,9 +1,9 @@
 {
-  "apps": {
+  "home": {
     "tabs": {
       "AppStore": "App Store",
-      "Messages": "信息",
-      "Photos": "照片"
+      "People": "联系人",
+      "Environments": "环境"
     },
     "appList": {
       "TV": "TV",
@@ -27,9 +27,19 @@
     "menuList": {
       "DeveloperProfile": "开发者",
       "Language": "语言",
-      "Environments": "环境",
+      "Mode": "昼夜模式",
       "About": "关于",
       "Reward": "赞助"
+    }
+  },
+  "photos": {
+    "tabs": {
+      "Spatial": "空间",
+      "Memories": "回忆",
+      "Library": "图库",
+      "Albums": "相册",
+      "Panoramas": "全景",
+      "Search": "搜索"
     }
   }
 }

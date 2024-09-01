@@ -44,7 +44,7 @@ const props = defineProps<{
   // 是否居中
   center?: boolean
 }>()
-
+// 接收事件
 const emit = defineEmits(['update:modelValue'])
 </script>
 

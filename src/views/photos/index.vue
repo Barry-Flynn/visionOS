@@ -26,6 +26,7 @@
 
 <script setup lang="ts">
 import { type Tab } from '@/types/tabBar'
+import { useI18n } from 'vue-i18n'
 import Window from '@/components/Window/index.vue'
 import TabBar from '@/components/TabBar/index.vue'
 import Ornaments from '@/components/Ornaments/index.vue'
@@ -35,41 +36,43 @@ defineOptions({
   name: 'PhotosView'
 })
 
+const { t } = useI18n()
+
 // 定义标签项
 const tabs: Tab[] = [
   {
-    icon: 'moment_line',
-    name: 'Moments',
-    path: '/moments',
+    icon: 'pic_fill',
+    name: t('photos.tabs.Spatial'),
+    path: '/spatial',
     active: false
   },
   {
     icon: 'history_anticlockwise_line',
-    name: 'Memories',
+    name: t('photos.tabs.Memories'),
     path: '/memories',
     active: false
   },
   {
     icon: 'photo_album_line',
-    name: 'Photo Albums',
-    path: '/photoAlbums',
+    name: t('photos.tabs.Library'),
+    path: '/library',
     active: true
   },
   {
     icon: 'album_2_fill',
-    name: 'Albums',
+    name: t('photos.tabs.Albums'),
     path: '/albums',
     active: false
   },
   {
     icon: 'panoramas_fill',
-    name: 'Panoramas',
+    name: t('photos.tabs.Panoramas'),
     path: '/panoramas',
     active: false
   },
   {
     icon: 'search_line',
-    name: 'Search',
+    name: t('photos.tabs.Search'),
     path: '/search',
     active: false
   }

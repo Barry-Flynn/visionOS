@@ -56,7 +56,7 @@ const animationFunction = () => {
 
     // 跳转页面
     setTimeout(() => {
-      router.push('/apps')
+      router.push('/home')
     }, 0)
   })
 }

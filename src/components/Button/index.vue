@@ -5,6 +5,7 @@
     :class="[
       'button',
       props.bg ? 'is-has-bg' : '',
+      props.highlighted ? 'is-highlighted' : '',
       props.disabled ? 'is-disabled' : '',
       props.size === 'large' ? 'is-large' : '',
       props.size === 'huge' ? 'is-huge' : ''
@@ -31,6 +32,8 @@ const props = defineProps<{
   icon?: string
   // 是否设置背景色，如果是，按钮会被添加 is-has-bg 类
   bg?: boolean
+  // 是否高亮按钮，如果是，按钮会被添加 is-highlighted 类
+  highlighted?: boolean
   // 是否禁用按钮
   disabled?: boolean
   // 尺寸
@@ -67,6 +70,10 @@ const handleClick = () => {
     background-color: rgba(255, 255, 255, 0.4);
   }
   &:active {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  &.is-highlighted {
     background-color: rgba(255, 255, 255, 0.9);
     color: rgba(0, 0, 0, 0.8);
   }

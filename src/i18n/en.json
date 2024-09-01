@@ -1,9 +1,9 @@
 {
-  "apps": {
+  "home": {
     "tabs": {
       "AppStore": "App Store",
-      "Messages": "Messages",
-      "Photos": "Photos"
+      "People": "People",
+      "Environments": "Environments"
     },
     "appList": {
       "TV": "TV",
@@ -27,9 +27,19 @@
     "menuList": {
       "DeveloperProfile": "Developer Profile",
       "Language": "Language",
-      "Environments": "Environments",
+      "Mode": "Mode",
       "About": "About",
       "Reward": "Reward"
+    }
+  },
+  "photos": {
+    "tabs": {
+      "Spatial": "Spatial",
+      "Memories": "Memories",
+      "Library": "Library",
+      "Albums": "Albums",
+      "Panoramas": "Panoramas",
+      "Search": "Search"
     }
   }
 }

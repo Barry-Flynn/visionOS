@@ -48,7 +48,7 @@ import TabBar from '@/components/TabBar/index.vue'
 import PaginationDots from '@/components/Pagination/index.vue'
 
 defineOptions({
-  name: 'AppsView'
+  name: 'HomeView'
 })
 
 const { t } = useI18n()
@@ -57,20 +57,20 @@ const { t } = useI18n()
 const tabs: Tab[] = [
   {
     icon: 'appstore_line',
-    name: t('apps.tabs.AppStore'),
+    name: t('home.tabs.AppStore'),
     path: '/appstore',
     active: true
   },
   {
-    icon: 'group_2_line',
-    name: t('apps.tabs.Messages'),
+    icon: 'group_2_fill',
+    name: t('home.tabs.People'),
     path: '/messages',
     active: false
   },
   {
-    icon: 'pic_line',
-    name: t('apps.tabs.Photos'),
-    path: '/photos',
+    icon: 'mountain_2_line',
+    name: t('home.tabs.Environments'),
+    path: '/environments',
     active: false
   }
 ]
@@ -78,59 +78,59 @@ const tabs: Tab[] = [
 // 定义app列表
 const appList = [
   {
-    name: t('apps.appList.TV'),
+    name: t('home.appList.TV'),
     icon: 'TV.png'
   },
   {
-    name: t('apps.appList.Music'),
+    name: t('home.appList.Music'),
     icon: 'Music.png',
     path: '/music'
   },
   {
-    name: t('apps.appList.Mindfulness'),
+    name: t('home.appList.Mindfulness'),
     icon: 'Mindfulness.png'
   },
   {
-    name: t('apps.appList.Settings'),
+    name: t('home.appList.Settings'),
     icon: 'Settings.png',
     path: '/settings'
   },
   {
-    name: t('apps.appList.Freeform'),
+    name: t('home.appList.Freeform'),
     icon: 'Freeform.png'
   },
   {
-    name: t('apps.appList.Safari'),
+    name: t('home.appList.Safari'),
     icon: 'Safari.png',
     path: '/safari'
   },
   {
-    name: t('apps.appList.Photos'),
+    name: t('home.appList.Photos'),
     icon: 'Photos.png',
     path: '/photos'
   },
   {
-    name: t('apps.appList.Notes'),
+    name: t('home.appList.Notes'),
     icon: 'Notes.png'
   },
   {
-    name: t('apps.appList.AppStore'),
+    name: t('home.appList.AppStore'),
     icon: 'AppStore.png'
   },
   {
-    name: t('apps.appList.Mail'),
+    name: t('home.appList.Mail'),
     icon: 'Mail.png'
   },
   {
-    name: t('apps.appList.Messages'),
+    name: t('home.appList.Messages'),
     icon: 'Messages.png'
   },
   {
-    name: t('apps.appList.Keynote'),
+    name: t('home.appList.Keynote'),
     icon: 'Keynote.png'
   },
   {
-    name: t('apps.appList.CompatibleApps'),
+    name: t('home.appList.CompatibleApps'),
     icon: 'CompatibleApps.png'
   }
 ]
@@ -193,7 +193,7 @@ const getAppIconUrl = (icon: string) => {
         img {
           width: 100%;
           height: 100%;
-          // 禁止鼠标拖拽
+          // 禁止拖拽
           pointer-events: none;
         }
 

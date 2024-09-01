@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <Button size="large" icon="message_4_line" />
+    <Button size="large" icon="message_4_line" :highlighted="showLyrics" @click="handleLyrics" />
     <Button size="large" icon="list_check_line" />
     <Button size="large" icon="volume_line" />
   </div>
@@ -35,19 +35,33 @@ defineOptions({
   name: 'MusicPlayer'
 })
 
-// 当前音乐信息
-const musicInfo = ref({
-  name: 'Flowers',
-  musician: 'Miley Cyrus',
-  cover: 'https://picsum.photos/30/30?random=1'
-})
+// 接收参数
+defineProps<{
+  // 当前音乐信息
+  musicInfo: {
+    name: string
+    musician: string
+    cover: string
+  }
+  // 是否显示歌词
+  showLyrics?: boolean
+}>()
+// 接收事件
+const emit = defineEmits<{
+  (e: 'toggleLyrics'): void
+}>()
 
-// 是否播放
-const isPlaying = ref(true)
-
+// 是否正在播放
+const isPlaying = ref(false)
 // 播放/暂停
 const handlePlay = () => {
   isPlaying.value = !isPlaying.value
+}
+
+// 显示/隐藏歌词
+const handleLyrics = () => {
+  // 触发父组件绑定事件 toggle-lyrics
+  emit('toggleLyrics')
 }
 </script>
 

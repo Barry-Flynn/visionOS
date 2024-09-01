@@ -52,9 +52,9 @@ const menuList = [
     path: '/settings/language'
   },
   {
-    icon: 'pic_line',
-    name: t('settings.menuList.Environments'),
-    path: '/settings/environments'
+    icon: 'brightness_line',
+    name: t('settings.menuList.Mode'),
+    path: '/settings/mode'
   },
   {
     icon: 'alert_octagon_line',

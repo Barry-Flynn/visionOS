@@ -2,7 +2,7 @@ import { createRouter } from 'vue-router'
 // import { createWebHistory } from 'vue-router'
 import { createWebHashHistory } from 'vue-router'
 import HelloView from '@/views/hello/index.vue'
-import AppsView from '@/views/apps/index.vue'
+import HomeView from '@/views/home/index.vue'
 
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,7 +11,7 @@ const router = createRouter({
     // {
     //   // Redirect to the first child route
     //   path: '/',
-    //   redirect: { name: 'apps' }
+    //   redirect: { name: 'home' }
     // },
     {
       path: '/',
@@ -19,14 +19,22 @@ const router = createRouter({
       component: HelloView
     },
     {
-      path: '/apps',
-      name: 'apps',
-      component: AppsView
+      path: '/home',
+      name: 'home',
+      component: HomeView
     },
     {
       path: '/music',
       name: 'music',
-      component: () => import('@/views/music/index.vue')
+      component: () => import('@/views/music/index.vue'),
+      redirect: { name: 'all-playlist' },
+      children: [
+        {
+          path: 'playlist',
+          name: 'all-playlist',
+          component: () => import('@/views/music/AllPlaylists.vue')
+        }
+      ]
     },
     {
       path: '/settings',
@@ -37,17 +45,17 @@ const router = createRouter({
         {
           path: 'profile',
           name: 'profile',
-          component: () => import('@/views/settings/profile.vue')
+          component: () => import('@/views/settings/Profile.vue')
         },
         {
           path: 'language',
           name: 'language',
-          component: () => import('@/views/settings/language.vue')
+          component: () => import('@/views/settings/Language.vue')
         },
         {
-          path: 'environments',
-          name: 'environments',
-          component: () => import('@/views/settings/environments.vue')
+          path: 'mode',
+          name: 'mode',
+          component: () => import('@/views/settings/Mode.vue')
         }
       ]
     },
