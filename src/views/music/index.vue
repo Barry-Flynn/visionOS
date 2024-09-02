@@ -5,7 +5,7 @@
       <router-view />
 
       <Transition>
-        <LyricsPlayer v-if="showLyricsPlayer" :music-info="musicInfo" />
+        <LyricsPlayer v-show="showLyricsPlayer" :show="showLyricsPlayer" :music-info="musicInfo" />
       </Transition>
 
       <template v-slot:ornaments>
@@ -47,7 +47,7 @@ const musicInfo = ref({
 })
 
 // 是否显示歌词播放器
-const showLyricsPlayer = ref(false)
+const showLyricsPlayer = ref(true)
 // 切换歌词播放器显示状态
 const toggleLyricsPlayer = () => {
   showLyricsPlayer.value = !showLyricsPlayer.value

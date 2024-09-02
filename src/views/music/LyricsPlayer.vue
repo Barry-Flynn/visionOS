@@ -11,14 +11,28 @@
         <div class="develop-controls">
           <!-- <audio :src="getAudioUrl('569214247.m4a')" controls></audio> -->
 
-          <audio controls>
+          <audio controls ref="audioRef">
             <source src="@/assets/songs/569214247.m4a" />
           </audio>
         </div>
       </div>
-      <div class="lyrics-container" ref="lyricsContainer">
-        <div class="lyric-item active">哈哈哈哈哈哈哈哈哈</div>
-        <div class="lyric-item" v-for="(item, index) in lyric" :key="index">
+      <div class="lyrics-container hide-scrollbar" ref="lyricsContainerRef">
+        <div
+          class="lyric-item"
+          :class="currentLyricIndex === -1 ? 'active' : ''"
+          ref="currentLyricRef"
+        >
+          <span class="mgc_round_fill" style="margin-right: 4px; font-size: 18px"></span>
+          <span class="mgc_round_fill" style="margin-right: 4px; font-size: 18px"></span>
+          <span class="mgc_round_fill" style="margin-right: 4px; font-size: 18px"></span>
+        </div>
+        <div
+          class="lyric-item"
+          :class="currentLyricIndex === index ? 'active' : ''"
+          v-for="(item, index) in lyric"
+          :key="index"
+          ref="lyricItemRefs"
+        >
           {{ item?.text }}
         </div>
       </div>
@@ -31,11 +45,14 @@ defineOptions({
   name: 'LyricsPlayer'
 })
 
+import { ref, onMounted, watch, nextTick } from 'vue'
 // 模拟歌词请求获取结果
 import lyricJson from '@/assets/songs/569214247.json'
 
 // 接收参数
-defineProps<{
+const props = defineProps<{
+  // 是否显示歌词播放器，即当前组件的显示状态
+  show: boolean
   // 当前音乐信息
   musicInfo: {
     name: string
@@ -44,6 +61,22 @@ defineProps<{
   }
 }>()
 
+// 监听当前组件的的显示状态变化
+watch(
+  () => props.show,
+  (newValue) => {
+    // console.log(newValue)
+    // 如果当前组件的显示状态转变为true
+    if (newValue) {
+      // 在下一帧执行
+      nextTick(() => {
+        // 滚动歌词到当前高亮的位置
+        scrollLyricToCurrent()
+      })
+    }
+  }
+)
+
 // 获取歌词原始数据
 const lyricData = lyricJson.lrc.lyric
 // console.log(lyricData)
@@ -51,36 +84,99 @@ const lyricData = lyricJson.lrc.lyric
 // 歌词解析函数
 const lyricParse = (lyricData: string) => {
   // 根据换行符进行分割
-  let lyricList = lyricData.split('\n')
-  // 如果最后一行为 undefined，则删除
-  if (lyricList[lyricList.length - 1] === '') {
-    lyricList.pop()
-  }
-  // console.log(lyricList)
+  let lines = lyricData.split('\n')
+  // console.log(lines)
 
-  return lyricList.map((item) => {
-    // 获取时间
-    const time = item.match(/\[(\d{2}):(\d{2})\.(\d{2,3})\]/)
+  let lyric = []
+  for (let i = 0; i < lines.length; i++) {
+    // 获取当前行
+    let line = lines[i]
+    // console.log(line)
+
+    // 检索字符串，匹配歌词时间
+    const time = line.match(/\[(\d{2}):(\d{2})\.(\d{2,3})\]/)
+    // console.log(time)
+
     if (time) {
       // 获取时间
       const min = time[1]
       const sec = time[2]
       const msec = time[3].length === 3 ? time[3] : time[3] + '0'
-      return {
+      // 获取歌词
+      const text = line.replace(/\[(\d{2}):(\d{2})\.(\d{2,3})\]/, '')
+
+      let wordObj = {
         time: Number(min) * 60 + Number(sec) + Number(msec) / 1000,
-        text: item.replace(/\[(\d{2}):(\d{2})\.(\d{2,3})\]/, '')
+        text: text
       }
+
+      lyric.push(wordObj)
     }
-  })
+  }
+  return lyric
+}
+const lyric = lyricParse(lyricData)
+// console.log(lyric)
+
+// 获取音频元素
+const audioRef = ref<HTMLAudioElement>()
+// console.log(audioRef.value)
+
+// 当前高亮的歌词索引
+const currentLyricIndex = ref(-1)
+// 计算当前需要高亮歌词的索引
+const updateCurrentLyricIndex = () => {
+  // 当前音乐的播放时间
+  // console.log(audioRef.value.currentTime)
+
+  if (!audioRef.value) {
+    return (currentLyricIndex.value = 0)
+  }
+  for (let i = 0; i < lyric.length; i++) {
+    if (audioRef.value.currentTime <= lyric[i].time) {
+      // console.log(i - 1)
+      return (currentLyricIndex.value = i - 1)
+    }
+  }
+  // 如果当前时间大于最后一句歌词的时间
+  return (currentLyricIndex.value = lyric.length - 1)
 }
 
-const lyric = lyricParse(lyricData)
-console.log(lyric)
+// 获取歌词元素
+const lyricItemRefs = ref<HTMLDivElement[]>([])
+// console.log(lyricItemRefs)
+// 滚动歌词到当前高亮的位置
+const scrollLyricToCurrent = () => {
+  // console.log(currentLyricIndex.value)
+  // 如果当前高亮的歌词索引为-1，则表示还未到第一句歌词的高亮时间
+  let currentLyricElement = lyricItemRefs.value[0]
+  if (currentLyricIndex.value === -1) {
+    currentLyricElement = lyricItemRefs.value[0]
+  } else {
+    currentLyricElement = lyricItemRefs.value[currentLyricIndex.value]
+  }
+  // 滚动歌词到当前位置
+  currentLyricElement.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  })
+}
+// 监听当前高亮的歌词索引
+watch(currentLyricIndex, () => {
+  // 滚动歌词到当前高亮的位置
+  scrollLyricToCurrent()
+})
 
-// 获取音频地址
-// const getAudioUrl = (audio: string) => {
-//   return new URL(`../../assets/songs/${audio}`, import.meta.url).href
-// }
+onMounted(() => {
+  // 监听音频元素播放时间变化
+  audioRef.value?.addEventListener('timeupdate', () => {
+    if (!audioRef.value) return
+    // console.log(audioRef.value.currentTime)
+
+    // 更新当前高亮的歌词索引
+    updateCurrentLyricIndex()
+  })
+})
 </script>
 
 <style scoped lang="scss">
@@ -125,6 +221,7 @@ console.log(lyric)
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      flex-shrink: 0; // 不缩小
 
       .cover {
         // border: 1px solid green;
@@ -154,6 +251,9 @@ console.log(lyric)
     .lyrics-container {
       // border: 1px solid blue;
       flex-grow: 1; // 可放大
+      padding: 250px 0;
+      // 允许点击，否则鼠标滚轮无法滚动歌词
+      pointer-events: all;
 
       .lyric-item {
         // border: 1px solid yellow;
@@ -162,6 +262,7 @@ console.log(lyric)
         padding: 4px 8px;
         margin: 4px;
         font-size: 18px;
+        min-height: 32px;
         font-weight: bold;
         color: rgba(255, 255, 255, 0.2);
         // 禁止选中
@@ -169,7 +270,7 @@ console.log(lyric)
         // 允许点击
         pointer-events: all;
         // 过渡
-        transition: all 0.2s ease-in-out;
+        transition: all 0.4s ease-out;
 
         &:hover {
           background-color: rgba(255, 255, 255, 0.2);
@@ -178,6 +279,7 @@ console.log(lyric)
         &.active {
           color: rgba(255, 255, 255, 0.8);
           font-size: 24px;
+          margin: 18px 4px;
         }
       }
     }
