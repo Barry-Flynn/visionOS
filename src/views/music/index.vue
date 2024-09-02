@@ -5,13 +5,25 @@
       <router-view />
 
       <Transition>
-        <LyricsPlayer v-show="showLyricsPlayer" :show="showLyricsPlayer" :music-info="musicInfo" />
+        <LyricsPlayer
+          v-show="showLyricsPlayer"
+          :show="showLyricsPlayer"
+          :is-playing="isPlaying"
+          :music-info="musicInfo"
+          @update:current-time="audioCurrentTime = $event"
+          @update:duration="audioDuration = $event"
+        />
       </Transition>
 
       <template v-slot:ornaments>
         <Ornaments>
           <PlayerBar
+            :is-playing="isPlaying"
+            @update:is-playing="isPlaying = $event"
             :music-info="musicInfo"
+            :current-time="audioCurrentTime"
+            @update:current-time="audioCurrentTime = $event"
+            :duration="audioDuration"
             :show-lyrics="showLyricsPlayer"
             @toggle-lyrics="toggleLyricsPlayer"
           />
@@ -24,19 +36,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineAsyncComponent } from 'vue'
+import { ref } from 'vue'
 import { type Tab } from '@/types/tabBar'
 import TabBar from '@/components/TabBar/index.vue'
 import Window from '@/components/Window/index.vue'
 import Ornaments from '@/components/Ornaments/index.vue'
 import PlayerBar from './PlayerBar.vue'
-// 异步加载歌词播放器组件
-// import LyricsPlayer from './LyricsPlayer.vue'
-const LyricsPlayer = defineAsyncComponent(() => import('./LyricsPlayer.vue'))
+import LyricsPlayer from './LyricsPlayer.vue'
 
 defineOptions({
   name: 'MusicView'
 })
+
+// 是否正在播放
+const isPlaying = ref(false)
 
 // 当前音乐信息
 const musicInfo = ref({
@@ -45,6 +58,10 @@ const musicInfo = ref({
   cover:
     'https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/09/71/70/09717058-6e6d-b1a2-5bd0-dc8932d76f2a/4894944725954.jpg/316x316bb.webp'
 })
+// 当前播放时间
+const audioCurrentTime = ref(0)
+// 当前音乐时长
+const audioDuration = ref(1)
 
 // 是否显示歌词播放器
 const showLyricsPlayer = ref(true)

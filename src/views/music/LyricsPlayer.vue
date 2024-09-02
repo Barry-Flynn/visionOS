@@ -11,7 +11,7 @@
         <div class="develop-controls">
           <!-- <audio :src="getAudioUrl('569214247.m4a')" controls></audio> -->
 
-          <audio controls ref="audioRef">
+          <audio controls ref="audioRef" style="display: none">
             <source src="@/assets/songs/569214247.m4a" />
           </audio>
         </div>
@@ -32,6 +32,7 @@
           v-for="(item, index) in lyric"
           :key="index"
           ref="lyricItemRefs"
+          @click="jumpToLyric(index)"
         >
           {{ item?.text }}
         </div>
@@ -53,6 +54,8 @@ import lyricJson from '@/assets/songs/569214247.json'
 const props = defineProps<{
   // 是否显示歌词播放器，即当前组件的显示状态
   show: boolean
+  // 是否正在播放
+  isPlaying: boolean
   // 当前音乐信息
   musicInfo: {
     name: string
@@ -73,6 +76,22 @@ watch(
         // 滚动歌词到当前高亮的位置
         scrollLyricToCurrent()
       })
+    }
+  }
+)
+
+// 监听音乐播放状态变化
+watch(
+  () => props.isPlaying,
+  (newValue) => {
+    // console.log(newValue)
+    // 如果当前音乐播放状态为true
+    if (newValue) {
+      // 播放音乐
+      audioRef.value?.play()
+    } else {
+      // 暂停音乐
+      audioRef.value?.pause()
     }
   }
 )
@@ -121,18 +140,23 @@ const lyric = lyricParse(lyricData)
 // 获取音频元素
 const audioRef = ref<HTMLAudioElement>()
 // console.log(audioRef.value)
+// 当前播放时间
+// const audioCurrentTime = ref(0)
+// 当前音乐时长
+// const audioDuration = ref(0)
 
 // 当前高亮的歌词索引
 const currentLyricIndex = ref(-1)
 // 计算当前需要高亮歌词的索引
 const updateCurrentLyricIndex = () => {
+  if (!audioRef.value) {
+    return (currentLyricIndex.value = -1)
+  }
+
   // 当前音乐的播放时间
   // console.log(audioRef.value.currentTime)
-
-  if (!audioRef.value) {
-    return (currentLyricIndex.value = 0)
-  }
   for (let i = 0; i < lyric.length; i++) {
+    // console.log(lyric[i])
     if (audioRef.value.currentTime <= lyric[i].time) {
       // console.log(i - 1)
       return (currentLyricIndex.value = i - 1)
@@ -161,12 +185,13 @@ const scrollLyricToCurrent = () => {
     block: 'center'
   })
 }
-// 监听当前高亮的歌词索引
+// 监听当前高亮的歌词索引变化
 watch(currentLyricIndex, () => {
   // 滚动歌词到当前高亮的位置
   scrollLyricToCurrent()
 })
 
+const emit = defineEmits(['update:current-time', 'update:duration'])
 onMounted(() => {
   // 监听音频元素播放时间变化
   audioRef.value?.addEventListener('timeupdate', () => {
@@ -175,8 +200,21 @@ onMounted(() => {
 
     // 更新当前高亮的歌词索引
     updateCurrentLyricIndex()
+
+    // 更新当前播放进度
+    // 触发父组件 @update:current-time
+    emit('update:current-time', audioRef.value.currentTime)
+    // 触发父组件 @update:duration
+    emit('update:duration', audioRef.value.duration)
   })
 })
+
+// 跳转播放进度到指定歌词的对应时间
+const jumpToLyric = (index: number) => {
+  // console.log(index)
+  if (!audioRef.value) return
+  audioRef.value.currentTime = lyric[index].time
+}
 </script>
 
 <style scoped lang="scss">

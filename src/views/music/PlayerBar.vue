@@ -17,7 +17,7 @@
       <Button icon="more_1_fill" />
 
       <div class="progress-bar">
-        <div class="progress" style="width: 33%"></div>
+        <div class="progress" :style="`width: ${progressPercentage}%`"></div>
       </div>
     </div>
 
@@ -28,35 +28,48 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed } from 'vue'
 import Button from '@/components/Button/index.vue'
 
 defineOptions({
-  name: 'MusicPlayer'
+  name: 'PlayerBar'
 })
 
 // 接收参数
-defineProps<{
+const props = defineProps<{
+  // 是否正在播放
+  isPlaying: boolean
   // 当前音乐信息
   musicInfo: {
     name: string
     musician: string
     cover: string
   }
+  // 当前播放时间
+  currentTime: number
+  // 当前音乐时长
+  duration: number
   // 是否显示歌词
-  showLyrics?: boolean
+  showLyrics: boolean
 }>()
 // 接收事件
-const emit = defineEmits<{
-  (e: 'toggleLyrics'): void
-}>()
+const emit = defineEmits(['update:isPlaying', 'toggleLyrics'])
 
-// 是否正在播放
-const isPlaying = ref(false)
 // 播放/暂停
 const handlePlay = () => {
-  isPlaying.value = !isPlaying.value
+  // 触发父组件 @update:is-playing
+  emit('update:isPlaying', !props.isPlaying)
 }
+
+// 计算播放进度百分比
+const progressPercentage = computed(() => {
+  return (props.currentTime / props.duration) * 100
+})
+
+// 播放进度条
+// const handleProgressBar = () => {
+//   // 播放进度条
+// }
 
 // 显示/隐藏歌词
 const handleLyrics = () => {
@@ -145,6 +158,8 @@ const handleLyrics = () => {
         height: 2px;
         background-color: rgba(255, 255, 255, 0.5);
         border-radius: 2px;
+        // 过渡
+        transition: width 0.2s;
       }
     }
   }
