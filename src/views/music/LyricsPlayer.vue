@@ -8,10 +8,10 @@
           <img :src="musicInfo.cover" alt="music cover" />
         </div>
 
-        <div class="develop-controls">
+        <div class="develop-controls" style="display: none">
           <!-- <audio :src="getAudioUrl('569214247.m4a')" controls></audio> -->
 
-          <audio controls ref="audioRef" style="display: none">
+          <audio controls ref="audioRef">
             <source src="@/assets/songs/569214247.m4a" />
           </audio>
         </div>
@@ -80,7 +80,7 @@ watch(
   }
 )
 
-// 监听音乐播放状态变化
+// 监听传入的音乐播放状态变化
 watch(
   () => props.isPlaying,
   (newValue) => {
@@ -191,7 +191,8 @@ watch(currentLyricIndex, () => {
   scrollLyricToCurrent()
 })
 
-const emit = defineEmits(['update:current-time', 'update:duration'])
+const emit = defineEmits(['update:is-playing', 'update:current-time', 'update:duration'])
+
 onMounted(() => {
   // 监听音频元素播放时间变化
   audioRef.value?.addEventListener('timeupdate', () => {
@@ -206,6 +207,16 @@ onMounted(() => {
     emit('update:current-time', audioRef.value.currentTime)
     // 触发父组件 @update:duration
     emit('update:duration', audioRef.value.duration)
+
+    // 触发父组件 @update:is-playing
+    // 判断 audioRef 的状态，触发父组件 update:is-playing
+    if (audioRef.value?.paused) {
+      // 如果为暂停状态
+      emit('update:is-playing', false)
+    } else {
+      // 如果为播放状态
+      emit('update:is-playing', true)
+    }
   })
 })
 

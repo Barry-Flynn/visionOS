@@ -9,6 +9,7 @@
           v-show="showLyricsPlayer"
           :show="showLyricsPlayer"
           :is-playing="isPlaying"
+          @update:is-playing="isPlaying = $event"
           :music-info="musicInfo"
           @update:current-time="audioCurrentTime = $event"
           @update:duration="audioDuration = $event"
